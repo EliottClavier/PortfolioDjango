@@ -1,0 +1,157 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Mes projets {% endblock %}
+
+<!-- Même sidebar que dans la home page mais avec des liens différents (pour rediriger vers la homepage) -->
+{% block sidebar-menu %}
+
+    <nav id="sidebar" class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+
+                <a id="icon-flag" class="js-scrollTo sidebar-element" href="{% url 'home' %}#home">
+                    <span class="icon-fa"><i class="far fa-flag fa-2x"></i></span>
+                    <span class="icon-text"> Accueil </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#whoami">
+                    <span class="icon-fa"><i class="fas fa-user fa-2x"></i></span>
+                    <span class="icon-text"> Qui suis-je ? </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#projects">
+                    <span class="icon-fa"><i class="fas fa-cubes fa-2x"></i></span>
+                    <span class="icon-text"> Mes projets </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#experiencesandskills">
+                    <span class="icon-fa"><i class="fas fa-briefcase fa-2x"></i></span>
+                    <span class="icon-text"> Mes compétences et expériences</span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a id="icon-phone" class="js-scrollTo sidebar-element" href="{% url 'home' %}#contactme">
+                    <span class="icon-fa"><i class="fas fa-phone fa-2x"></i></span>
+                    <span class="icon-text"> Contactez moi ! </span>
+                </a>
+
+            </div>
+        </div>
+
+    </nav>
+
+{% endblock %}
+
+<!-- Titre de la page -->
+{% block project %}
+
+    <!-- Section Projets Autre Page -->
+
+    <section class="container-fluid d-flex py-5">
+
+            <div class="row justify-content-center align-items-center ">
+
+            <div class="col-12 text-center">
+                <h1 class="title">Découvrez mes différents projets !</h1>
+                <!-- <a href="{% url 'home' %}" class="btn-modern">Retour à l'accueil</a> -->
+            </div>
+
+                <div class="col-11 justify-content-center align-items-center">
+
+                    {% for project in projects %}
+
+                        <!-- On rend la carte cliquable (redirige vers le lien du projet)-->
+                        <a href="{{ project.url }}" target="_blank">
+
+                            <!-- Carte Projet avec Image, Description et compétences clés -->
+                            <div class="card-project my-5">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-xl-5 col-lg-5 col-md-10 col-sm-10">
+                                        <h1 class="text-center"> {{ project.name }} </h1>
+                                        <p class="text-justify">{{ project.description }}</p>
+
+                                        <div class="row">
+                                            <div class="col-12">
+
+                                                <!-- Première Compétence -->
+                                                {% if project.skill_1.all %}
+
+                                                    <h4 class="text-center"> Compétences mises en oeuvre dans ce projet </h4>
+
+                                                    {% for skill in project.skill_1.all %}
+
+                                                        <div class="progress my-3" style="height: 2.5em; background-color: {{ skill.color }}CC">
+                                                            <div class="progress-bar" style="height: 2.5em; background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
+                                                                <h3 style="font-size: 18px"> {{ skill.name }} </h3>
+                                                            </div>
+                                                        </div>
+
+                                                    {% endfor %}
+
+                                                {% endif %}
+
+                                                 <!-- Deuxième compétence -->
+                                                {% if project.skill_2.all %}
+
+                                                    {% for skill in project.skill_2.all %}
+
+                                                        <div class="progress my-3" style="height: 2.5em; background-color: {{ skill.color }}CC">
+                                                            <div class="progress-bar" style="height: 2.5em; background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
+                                                                <h3 style="font-size: 18px"> {{ skill.name }} </h3>
+                                                            </div>
+                                                        </div>
+
+                                                    {% endfor %}
+
+                                                {% endif %}
+
+                                                 <!-- Troisième compétence -->
+                                                {% if project.skill_3.all %}
+
+                                                    {% for skill in project.skill_3.all %}
+
+                                                        <div class="progress my-3" style="height: 2.5em; background-color: {{ skill.color }}CC">
+                                                            <div class="progress-bar" style="height: 2.5em; background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
+                                                                <h3 style="font-size: 18px;"> {{ skill.name }} </h3>
+                                                            </div>
+                                                        </div>
+
+                                                    {% endfor %}
+
+                                                {% endif %}
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-1 col-lg-1"></div>
+
+                                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-center">
+                                        <img class="img-project" src="{{ project.image.url }}" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center align-items-center">
+
+                                    <h3 class="text-hidden">Accéder au projet</h3>
+
+                                </div>
+                            </div>
+
+                        </a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Mes recommandations {% endblock %}
+
+<!-- Même sidebar que dans la home page mais avec des liens différents (pour rediriger vers la homepage) -->
+{% block sidebar-menu %}
+
+    <nav id="sidebar" class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+
+                <a id="icon-flag" class="js-scrollTo sidebar-element" href="{% url 'home' %}#home">
+                    <span class="icon-fa"><i class="far fa-flag fa-2x"></i></span>
+                    <span class="icon-text"> Accueil </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#whoami">
+                    <span class="icon-fa"><i class="fas fa-user fa-2x"></i></span>
+                    <span class="icon-text"> Qui suis-je ? </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#projects">
+                    <span class="icon-fa"><i class="fas fa-cubes fa-2x"></i></span>
+                    <span class="icon-text"> Mes projets </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#experiencesandskills">
+                    <span class="icon-fa"><i class="fas fa-briefcase fa-2x"></i></span>
+                    <span class="icon-text"> Mes compétences et expériences</span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a id="icon-phone" class="js-scrollTo sidebar-element" href="{% url 'home' %}#contactme">
+                    <span class="icon-fa"><i class="fas fa-phone fa-2x"></i></span>
+                    <span class="icon-text"> Contactez moi ! </span>
+                </a>
+
+            </div>
+        </div>
+
+    </nav>
+
+{% endblock %}
+
+<!-- Titre de la page -->
+{% block recommendation %}
+
+    <!-- Section Projets Autre Page -->
+
+    <section id="recommend" class="container-fluid justify-content-center align-items-center d-flex py-5">
+
+            <div class="row justify-content-center align-items-center">
+
+                <div class="col-12 text-center">
+                    <h1 class="title">Mur des recommandations</h1>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-10 col-sm-10 justify-content-center align-items-center">
+
+                    {% for recommandation in recommendations %}
+
+                        {% if recommandation.verified %}
+                            <!-- Carte Recommandation  -->
+                            <div class="card-project my-5">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+                                        <h1 class="text-center">
+                                            {{ recommandation.lastname }} {{ recommandation.firstname }}
+                                            {% if recommandation.companyname %}
+                                                - {{ recommandation.companyname }}
+                                            {% endif %}
+                                        </h1>
+                                    </div>
+                                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+                                        <h2 class="text-center">{{ recommandation.message }}</h2>
+                                    </div>
+                                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+                                        <h5 class="text-center">{{ recommandation.date }}</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

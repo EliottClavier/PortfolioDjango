@@ -1,0 +1,10 @@
+Version de Django :
+Django~=3.0.8
+
+Plugins :
+django-colorfield
+https://pypi.org/project/django-colorfield/
+
+jQuery
+Bootstrap
+poppers.js

@@ -1,0 +1,448 @@
+{%  extends 'core/base.html' %}
+
+{% load static %}
+
+<!-- Titre de la page -->
+{% block title %} Portfolio by Eliott Clavier {% endblock %}
+
+<!-- Sidebars -->
+{% block sidebar-menu %}
+
+    <nav id="sidebar" class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+
+                <a id="icon-flag" class="js-scrollTo sidebar-element" href="#home">
+                    <span class="icon-fa"><i class="far fa-flag fa-2x"></i></span>
+                    <span class="icon-text"> Accueil </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="#whoami">
+                    <span class="icon-fa"><i class="fas fa-user fa-2x"></i></span>
+                    <span class="icon-text"> Qui suis-je ? </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="#projects">
+                    <span class="icon-fa"><i class="fas fa-cubes fa-2x"></i></span>
+                    <span class="icon-text"> Mes projets </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="#experiencesandskills">
+                    <span class="icon-fa"><i class="fas fa-briefcase fa-2x"></i></span>
+                    <span class="icon-text"> Mes compétences et expériences</span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a id="icon-phone" class="js-scrollTo sidebar-element" href="#contactme">
+                    <span class="icon-fa"><i class="fas fa-phone fa-2x"></i></span>
+                    <span class="icon-text"> Contactez moi ! </span>
+                </a>
+
+            </div>
+        </div>
+
+    </nav>
+
+{% endblock %}
+
+{% block sidebar-contact-reco %}
+
+    <nav id="sidebar-contact-reco" class="container-fluid">
+
+        <!-- Croix fermant la sidebar -->
+        <div class="row">
+            <button class="btn p-0 cross">
+                <i class="fas fa-times fa-2x"></i>
+            </button>
+        </div>
+
+        <div class="container-global-tabs">
+
+            <div class="container-tabs">
+                <div id="tab-contact" class="tabs active" data-displayed="1">Me contacter</div>
+                <div id="tab-reco" class="tabs" data-displayed="2">Me recommander</div>
+            </div>
+
+            <!-- Onglet Me contacter -->
+            <div id="tab-content-contact" class="content activeContent" data-displayed="1">
+
+                <form class="form-contact">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-11 mt-3">
+                            <p class="text text-center text-muted m-0"> Les champs marqués * sont obligatoires.</p>
+
+                            <label class="invisible" for="contactName"></label>
+                            <input type="text" class="form-custom" name="contactName" id="contactName" placeholder="Votre nom *" >
+                            <p class="field-error" data-field="contactName"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="contactFirstName"></label>
+                            <input type="text" class="form-custom" name="contactFirstName" id="contactFirstName" placeholder="Votre prénom *">
+                            <p class="field-error" data-field="contactFirstName"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="contactCompanyName"></label>
+                            <input type="text" class="form-custom" name="contactCompanyName" id="contactCompanyName" placeholder="Nom de votre entreprise">
+                            <p class="field-error" data-field="contactCompanyName"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="contactEmail"></label>
+                            <input type="email" class="form-custom" name="contactEmail" id="contactEmail" placeholder="Votre email *">
+                            <p class="field-error" data-field="contactEmail"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="contactObject"></label>
+                            <input class="form-custom" name="contactObject" id="contactObject" placeholder="Objet de votre message *" style="resize: none;">
+                            <p class="field-error" data-field="contactObject"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="contactText"></label>
+                            <textarea class="form-custom h-75" name="contactText" id="contactText" placeholder="Votre message *"></textarea>
+                            <p class="field-error" data-field="contactText"></p>
+                        </div>
+
+                        <div class="col-11 mt-3 text-center">
+                            <button type="button" class="btn-modern-reverse btn-dismiss mx-3" data-dismiss="modal"> Annuler </button>
+                            <button type="button" class="btn-modern btn-contact-send mx-3" data-target="#modalContact"> Envoyer </button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Onglet Me recommander -->
+            <div id="tab-content-reco" class="content" data-displayed="2">
+
+                <form class="form-recommend">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-11 mt-3">
+                            <p class="text text-center text-muted m-0"> Les champs marqués * sont obligatoires.</p>
+
+                            <label class="invisible" for="recommendName"></label>
+                            <input type="text" class="form-custom" name="recommendName" id="recommendName" placeholder="Votre nom *" >
+                            <p class="field-error" data-field="recommendName"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="recommendFirstName"></label>
+                            <input type="text" class="form-custom" name="recommendFirstName" id="recommendFirstName" placeholder="Votre prénom *">
+                            <p class="field-error" data-field="recommendFirstName"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="recommendCompanyName"></label>
+                            <input type="text" class="form-custom" name="recommendCompanyName" id="recommendCompanyName" placeholder="Nom de votre entreprise">
+                            <p class="field-error" data-field="recommendCompanyName"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="recommendEmail"></label>
+                            <input type="email" class="form-custom" name="recommendEmail" id="recommendEmail" placeholder="Votre email *">
+                            <p class="field-error" data-field="recommendEmail"></p>
+                        </div>
+
+                        <div class="col-11">
+                            <label class="invisible" for="recommendText"></label>
+                            <textarea class="form-custom h-75" name="recommendText" id="recommendText" placeholder="Votre message *"></textarea>
+                            <p class="field-error" data-field="recommendText"></p>
+                        </div>
+
+                        <div class="col-11 mt-3 text-center">
+                            <button type="button" class="btn-modern-reverse btn-dismiss mx-3" data-dismiss="modal"> Annuler </button>
+                            <button type="button" class="btn-modern btn-recommend-send mx-3" data-target="#modalRecommend"> Envoyer </button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Div qui cache le reste de la page quand la sidebar des contacts/recommandations est tirée -->
+    <div class="overlay"></div>
+
+{% endblock %}
+
+<!-- Sections de la page -->
+{% block main-page %}
+
+    <!-- Section Accueil -->
+    <a name="home"></a>
+    <section id="home" class="container-fluid d-flex justify-content-center align-items-center py-5">
+    
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-10 col-md-8 col-sm-8 text-center">
+
+                <!-- Logo -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 text-center">
+                        <img class="img-fluid" src="{% static 'images/logo.svg' %}" alt="">
+                    </div>
+                </div>
+
+                <!-- Intitulé -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-10 col-lg-10 col-md-8 col-sm-8 text-center">
+
+                        <h1 class="title mb-4">Eliott Clavier</h1>
+                        <hr>
+                        <h2 class="mt-4">Alternant ingénieur informatique chez RTE et étudiant DEV chez Campus Academy Nantes.</h2>
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mt-3">
+                    <a class="btn-modern-reverse mr-2" href="https://github.com/EliottClavier" target="_blank">
+                        <i class="fab fa-github"></i> Mon GitHub
+                    </a>
+                    <a class="btn-modern-reverse ml-2" href="https://www.linkedin.com/in/eliott-clavier-154843197/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i> Mon Linkedin
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section Qui suis-je ? -->
+    <a name="whoami"></a>
+    <section id="whoami" class="container-fluid d-flex py-5">
+        <div class="row justify-content-center align-items-center">
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 text-center">
+
+                <img class="rounded-circle img-fluid mb-5 profile-picture" src="{% static 'images/photo_profil.png' %}" alt="Photo de profil">
+
+                <form method="get" action="{% static 'files/CV.pdf' %}">
+                    <button type="submit" class="btn-modern">Télécharger mon CV</button>
+                </form>
+
+            </div>
+
+            <div class="col-xl-1 col-lg-1"></div>
+
+            <div class="col-xl-5 col-lg-5 col-md-10 col-sm-10">
+
+                <h1 class="title text-center mb-4">Qui suis-je ?</h1>
+                <p class="text-justify">Récemment diplômé d’un Baccalauréat Scientifique, je suis, depuis septembre 2019, étudiant dans l’école Campus Academy Nantes. C’est dans le cadre d’un projet d’école visant à mettre en œuvre et améliorer mes compétences que ce portfolio professionnel a vu le jour. Ce site a donc pour principal but de me présenter mais aussi de pouvoir prouver ma compétence et ma motivation. Afin de découvrir mon profil, je vous invite donc à visiter mon site, mon profil Linkedin ou bien mon CV à votre disposition. </p>
+                <h1 class="title text-center mt-4">Bonne visite !</h1>
+
+            </div>
+        </div>
+
+    </section>
+
+    <a name="projects"></a>
+    <section id="projects" class="container-fluid justify-content-center align-items-center d-flex py-5">
+        <div class="row justify-content-center align-items-center">
+
+            <h1 class="title my-5">Découvrez mes différents projets !</h1>
+
+                <div class="col-10 text-center">
+
+                    <div class="row justify-content-center align-items-center">
+
+                        <!-- <button id="btn-project-previous" class="btn-modern"> <i class="fas fa-angle-left fa-2x"></i> </button> -->
+    
+                        {% for project in projects %}
+                                {% if forloop.counter == 3 %}
+                                    <div data-project-index="{{ forloop.counter }}" class="project activeProject col-xl-8 col-lg-8 col-md-8 col-sm-8 text-center">
+                                        <h1 class="text-center"> {{ project.name }} </h1>
+                                        <img class="img-project my-3 w-75" src="{{ project.image.url }}" alt="Image du projet {{ project.name }}">
+                                    </div>
+                                {% else %}
+                                    <div data-project-index="{{ forloop.counter }}" class="project col-xl-8 col-lg-8 col-md-8 col-sm-8 text-center">
+                                        <h1 class="text-center"> {{ project.name }} </h1>
+                                        <img class="img-project my-3 w-75" src="{{ project.image.url }}" alt="Image du projet {{ project.name }}">
+                                    </div>
+                                {% endif %}
+                        {% endfor %}
+
+                        <!-- <button id="btn-project-next" class="btn-modern"> <i class="fas fa-angle-right fa-2x"></i> </button> -->
+
+                </div>
+                
+                <div class="row justify-content-center align-items-center">
+
+                    <a href="{% url 'projects' %}" class="btn-modern">Plus de détails ici !</a>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <a name="experiencesandskills"></a>
+    <section id="experiencesandskills" class="container-fluid justify-content-center align-items-center d-flex py-5">
+        <div class="row justify-content-center align-items-center">
+
+            <h1 class="title mt-5">Compétences et expériences !</h1>
+
+            <div class="col-10 text-center my-5">
+
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-4">
+                        <button class="btn-modern btn-skills text-center">
+                            Mes compétences
+                        </button>
+                    </div>
+
+                    <div class="col-4">
+                        <button class="btn-modern btn-experiences text-center">
+                            Mes expériences
+                        </button>
+                    </div>
+
+                    <div class="col-4">
+                        <button class="btn-modern btn-studies text-center">
+                            Ma formation
+                        </button>
+                    </div>
+
+                </div>
+
+             <!-- On affiche les compétences -->
+            <div class="row justify-content-center align-items-center display-skills my-3" style="display: none">
+
+                {% for skill in skills %}
+
+                    <div class="col-xl-5 col-lg-5 col-md-7 col-sm-7">
+                        <div class="progress my-3" style="background-color: {{ skill.color }}CC">
+                            <div class="progress-bar" style="background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
+                                <h3 style="font-size: 18px"> {{ skill.name }} </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="col-xl-1 col-lg-1"></div>
+
+                {% endfor %}
+
+            </div>
+
+            {% for experience in experiences %}
+            <div class="row justify-content-center align-items-center display-experiences py-4 my-3" style="display: none;">
+
+                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-center">
+                        <h5>{{ experience.duration }}</h5>
+                        <hr style="background-color: black">
+                        <h3>{{ experience.name }}</h3>
+                    </div>
+
+                    <div class="col-xl-1 col-lg-1"></div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-justify">
+                        {{ experience.description|linebreaks }}
+                    </div>
+
+            </div>
+            {% endfor %}
+
+            {% for study in studies %}
+            <div class="row justify-content-center align-items-center display-studies py-4 my-3" style="display: none;">
+
+                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-center">
+                        <h5>{{ study.duration }}</h5>
+                        <hr style="background-color: black">
+                        <h3>{{ study.name }}</h3>
+                    </div>
+
+                    <div class="col-xl-1 col-lg-1"></div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-justify">
+                        {{ study.description|linebreaks }}
+                    </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- Section Contactez moi ! -->
+    <a name="contactme"></a>
+    <section id="contactme" class="container-fluid d-flex justify-content-center align-items-center py-5">
+
+        <div class="row">
+
+             <!-- Texte -->
+            <div class="col-12">
+                <div class="row justify-content-center align-items-center">
+
+                    <div class="col-xl-4 col-lg-4 col-md-10 col-10-sm text-center">
+
+                        <!-- Texte -->
+                        <h1 class="text-center mb-3"> Comment me contacter ? </h1>
+
+                        <p class="text-justify">
+                            Afin de me contacter, vous pouvez remplir le formulaire en cliquant sur le bouton ci-dessous. Votre message me sera alors transmis et
+                            la réponse envoyée dans les plus brefs délais. Vous avez également accès mes autres moyens de contacts et réseaux sociaux.
+                        </p>
+
+                        <!-- Bouton -->
+                        <button type="button" class="btn-modern btn-open-sidebar-contact">Me contacter</button>
+
+                    </div>
+
+                    <div class="col-xl-1 col-lg-1"></div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-10 col-10-sm text-center">
+
+                        <!-- Texte -->
+                        <h1 class="text-center mb-3"> Pourquoi me recommander ? </h1>
+
+                        <p class="text-justify">
+                            Afin d'assurer une légitimité dans mes réalisations personnelles ou au sein d'une équipe,
+                            toute recommandation sur mon profil m'est précieuse. Si vous souhaitez me recommander, veuillez remplir le formulaire en cliquant sur le bouton ci-dessous.
+                        </p>
+
+                        <!-- Bouton -->
+                        <button type="button" class="btn-modern btn-open-sidebar-reco">Me recommander</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-12 py-4">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-6 text-center">
+                        <a href="{% url 'recommendations' %}" type="button" class="btn-modern link-reversed">Un coup d'oeil sur mes recommandations ?</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="footer" class="container-fluid d-flex justify-content-center align-items-center py-3">
+
+        <div class="row justify-content-center align-items-center">
+            <h3>Portfolio by Eliott Clavier</h3>
+        </div>
+
+    </section>
+
+{% endblock %}
