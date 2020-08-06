@@ -49,41 +49,44 @@ $(document).ready(function () {
       return false;
     });
 
-    /* Activer la sidebar Contact / Recommendation */
-    $('button.btn-open-sidebar-contact, button.btn-open-sidebar-reco, button.cross').on('click', function() {
-        const cssValue = parseInt($('#sidebar-contact-reco').css('right'));
+    /* Bouton d'activation de la sidebar en mode mobile / tablette */
+    $('button#trigger-sidebar-menu, .js-scrollTo').on('click', function () {
+        $('#sidebar').toggleClass('sidebar-menu-activated')
+    })
 
-        if (cssValue === -30 * 16) {
+   $('button.btn-open-sidebar-contact, button.btn-open-sidebar-reco, button.cross').on('click', function() {
 
-            $('#sidebar-contact-reco').css('right', 0)
+       const classValue = $('#sidebar-contact-reco').hasClass('sidebar-contact-reco-activated')
 
-            if ($(this).hasClass('btn-open-sidebar-contact') && !($('#tab-contact').hasClass('active'))) {
+       if (!(classValue)) {
+           $('#sidebar-contact-reco').addClass('sidebar-contact-reco-activated')
+       } else {
+           $('#sidebar-contact-reco').removeClass('sidebar-contact-reco-activated')
+       }
 
-                $('#tab-contact').addClass('active'); $('#tab-reco').removeClass('active')
-                $('#tab-content-contact').addClass('activeContent'); $('#tab-content-reco').removeClass('activeContent')
+       /* Activer la sidebar Contact / Recommendation */
+       if ($(this).hasClass('btn-open-sidebar-contact') && !($('#tab-contact').hasClass('active'))) {
 
-            } else if($(this).hasClass('btn-open-sidebar-reco') && !($('#tab-reco').hasClass('active'))) {
+        $('#tab-contact').addClass('active'); $('#tab-reco').removeClass('active')
+        $('#tab-content-contact').addClass('activeContent'); $('#tab-content-reco').removeClass('activeContent')
 
-                $('#tab-reco').addClass('active'); $('#tab-contact').removeClass('active')
-                $('#tab-content-reco').addClass('activeContent'); $('#tab-content-contact').removeClass('activeContent')
+        } else if($(this).hasClass('btn-open-sidebar-reco') && !($('#tab-reco').hasClass('active'))) {
 
-            }
-            $('div.overlay').css('z-index', 999).css('opacity', 0.5)
-            $('html').css('overflow-y', 'hidden')
+            $('#tab-reco').addClass('active'); $('#tab-contact').removeClass('active')
+            $('#tab-content-reco').addClass('activeContent'); $('#tab-content-contact').removeClass('activeContent')
+
         }
+        $('div.overlay').css('z-index', 999).css('opacity', 0.5)
+        $('html').css('overflow-y', 'hidden')
 
-    });
+   })
 
-    $('button.cross, button.btn-dismiss').on('click', function() {
-        const cssValue = parseInt($('#sidebar-contact-reco').css('right'));
 
-        if (cssValue !== -30 * 16) {
-            /* -30rem (valeur de décalage de la sidebar projet) * 16 (conversion en px) */
-            $('#sidebar-contact-reco').css('right', -30 * 16)
+    $('button.cross, button.btn-dismiss, button.btn-recommend-send, button.btn-contact-send').on('click', function() {
 
-            $('div.overlay').css('z-index', -999).css('opacity', 0)
-            $('html').css('overflow-y', 'visible')
-        }
+       $('#sidebar-contact-reco').removeClass('sidebar-contact-reco-activated')
+       $('div.overlay').css('z-index', -999).css('opacity', 0)
+       $('html').css('overflow-y', 'visible')
 
     });
 
@@ -188,9 +191,6 @@ $(document).ready(function () {
     }, 3500);
 
 });
-
-
-
 
 /* Bouton suivant précèdent de la section projet */
 // $('button#btn-project-previous').on('click', function() {

@@ -24,6 +24,8 @@ import core.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core.views.homepage, name="home"),
+    path('ajax/recommendation', core.views.ajax_recommendation, name='ajax_recommendation'),
+    path('ajax/contact', core.views.ajax_contact, name='ajax_contact'),
     path('projets', core.views.projects, name="projects"),
     path('recommandations', core.views.recommendations, name="recommendations")
 ]

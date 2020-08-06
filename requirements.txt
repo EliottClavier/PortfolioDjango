@@ -5,6 +5,9 @@ Plugins :
 django-colorfield
 https://pypi.org/project/django-colorfield/
 
+django-widget-tweaks
+pip install django-widget-tweaks
+
 jQuery
 Bootstrap
 poppers.js

@@ -1,12 +1,15 @@
 {%  extends 'core/base.html' %}
 
 {% load static %}
+{% load widget_tweaks %}
 
 <!-- Titre de la page -->
 {% block title %} Portfolio by Eliott Clavier {% endblock %}
 
 <!-- Sidebars -->
 {% block sidebar-menu %}
+
+    <button id="trigger-sidebar-menu" class="btn-modern-reverse"><i class="fas fa-bars fa-2x"></i></button>
 
     <nav id="sidebar" class="container-fluid">
 
@@ -74,53 +77,33 @@
             <!-- Onglet Me contacter -->
             <div id="tab-content-contact" class="content activeContent" data-displayed="1">
 
-                <form class="form-contact">
+                <form id="contactForm" action="{% url 'ajax_contact' %}" method="POST">
+
+                    {% csrf_token %}
 
                     <div class="row justify-content-center">
 
-                        <div class="col-11 mt-3">
-                            <p class="text text-center text-muted m-0"> Les champs marqués * sont obligatoires.</p>
+                            <p class="text text-center text-muted m-0 mt-md-3 mt-sm-3"> Les champs marqués * sont obligatoires.</p>
 
-                            <label class="invisible" for="contactName"></label>
-                            <input type="text" class="form-custom" name="contactName" id="contactName" placeholder="Votre nom *" >
-                            <p class="field-error" data-field="contactName"></p>
-                        </div>
+                            {% for field in contactForm %}
+                                {% if field == contactFormForm.message %}
 
-                        <div class="col-11">
-                            <label class="invisible" for="contactFirstName"></label>
-                            <input type="text" class="form-custom" name="contactFirstName" id="contactFirstName" placeholder="Votre prénom *">
-                            <p class="field-error" data-field="contactFirstName"></p>
-                        </div>
+                                    <div class="col-11 text-center">
+                                        {% render_field field class='form-custom' %}
+                                    </div>
 
-                        <div class="col-11">
-                            <label class="invisible" for="contactCompanyName"></label>
-                            <input type="text" class="form-custom" name="contactCompanyName" id="contactCompanyName" placeholder="Nom de votre entreprise">
-                            <p class="field-error" data-field="contactCompanyName"></p>
-                        </div>
+                                {% else %}
 
-                        <div class="col-11">
-                            <label class="invisible" for="contactEmail"></label>
-                            <input type="email" class="form-custom" name="contactEmail" id="contactEmail" placeholder="Votre email *">
-                            <p class="field-error" data-field="contactEmail"></p>
-                        </div>
+                                    <div class="col-11 text-center">
+                                        {% render_field field class='form-custom' %}
+                                    </div>
 
-                        <div class="col-11">
-                            <label class="invisible" for="contactObject"></label>
-                            <input class="form-custom" name="contactObject" id="contactObject" placeholder="Objet de votre message *" style="resize: none;">
-                            <p class="field-error" data-field="contactObject"></p>
-                        </div>
+                                {% endif %}
 
-                        <div class="col-11">
-                            <label class="invisible" for="contactText"></label>
-                            <textarea class="form-custom h-75" name="contactText" id="contactText" placeholder="Votre message *"></textarea>
-                            <p class="field-error" data-field="contactText"></p>
-                        </div>
+                            {% endfor %}
 
-                        <div class="col-11 mt-3 text-center">
-                            <button type="button" class="btn-modern-reverse btn-dismiss mx-3" data-dismiss="modal"> Annuler </button>
-                            <button type="button" class="btn-modern btn-contact-send mx-3" data-target="#modalContact"> Envoyer </button>
-                        </div>
-
+                            <button type="button" class="btn-modern-reverse btn-dismiss mx-3"> Annuler </button>
+                            <button type="submit" class="btn-modern btn-contact-send mx-3"> Envoyer </button>
                     </div>
 
                 </form>
@@ -129,50 +112,37 @@
             <!-- Onglet Me recommander -->
             <div id="tab-content-reco" class="content" data-displayed="2">
 
-                <form class="form-recommend">
+                <form id="recommendationForm" action="{% url 'ajax_recommendation' %}" method="POST">
+
+                    {% csrf_token %}
 
                     <div class="row justify-content-center">
 
-                        <div class="col-11 mt-3">
-                            <p class="text text-center text-muted m-0"> Les champs marqués * sont obligatoires.</p>
+                        <p class="text text-center text-muted m-0 mt-md-3 mt-sm-3"> Les champs marqués * sont obligatoires.</p>
 
-                            <label class="invisible" for="recommendName"></label>
-                            <input type="text" class="form-custom" name="recommendName" id="recommendName" placeholder="Votre nom *" >
-                            <p class="field-error" data-field="recommendName"></p>
-                        </div>
+                        {% for field in recommendationForm %}
+                            {% if field == recommendationForm.message %}
 
-                        <div class="col-11">
-                            <label class="invisible" for="recommendFirstName"></label>
-                            <input type="text" class="form-custom" name="recommendFirstName" id="recommendFirstName" placeholder="Votre prénom *">
-                            <p class="field-error" data-field="recommendFirstName"></p>
-                        </div>
+                                <div class="col-11 text-center">
+                                    {% render_field field class='form-custom' %}
+                                </div>
 
-                        <div class="col-11">
-                            <label class="invisible" for="recommendCompanyName"></label>
-                            <input type="text" class="form-custom" name="recommendCompanyName" id="recommendCompanyName" placeholder="Nom de votre entreprise">
-                            <p class="field-error" data-field="recommendCompanyName"></p>
-                        </div>
+                            {% else %}
 
-                        <div class="col-11">
-                            <label class="invisible" for="recommendEmail"></label>
-                            <input type="email" class="form-custom" name="recommendEmail" id="recommendEmail" placeholder="Votre email *">
-                            <p class="field-error" data-field="recommendEmail"></p>
-                        </div>
+                                <div class="col-11 text-center">
+                                    {% render_field field class='form-custom' %}
+                                </div>
 
-                        <div class="col-11">
-                            <label class="invisible" for="recommendText"></label>
-                            <textarea class="form-custom h-75" name="recommendText" id="recommendText" placeholder="Votre message *"></textarea>
-                            <p class="field-error" data-field="recommendText"></p>
-                        </div>
+                            {% endif %}
 
-                        <div class="col-11 mt-3 text-center">
-                            <button type="button" class="btn-modern-reverse btn-dismiss mx-3" data-dismiss="modal"> Annuler </button>
-                            <button type="button" class="btn-modern btn-recommend-send mx-3" data-target="#modalRecommend"> Envoyer </button>
-                        </div>
+                        {% endfor %}
 
+                        <button type="button" class="btn-modern-reverse btn-dismiss mx-3"> Annuler </button>
+                        <button type="submit" class="btn-modern btn-recommend-send mx-3"> Envoyer </button>
                     </div>
 
                 </form>
+
             </div>
         </div>
     </nav>
@@ -185,6 +155,17 @@
 <!-- Sections de la page -->
 {% block main-page %}
 
+
+
+
+
+
+
+
+
+
+
+
     <!-- Section Accueil -->
     <a name="home"></a>
     <section id="home" class="container-fluid d-flex justify-content-center align-items-center py-5">
@@ -194,14 +175,14 @@
 
                 <!-- Logo -->
                 <div class="row justify-content-center">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 text-center">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5 text-center">
                         <img class="img-fluid" src="{% static 'images/logo.svg' %}" alt="">
                     </div>
                 </div>
 
                 <!-- Intitulé -->
                 <div class="row justify-content-center">
-                    <div class="col-xl-10 col-lg-10 col-md-8 col-sm-8 text-center">
+                    <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 text-center">
 
                         <h1 class="title mb-4">Eliott Clavier</h1>
                         <hr>
@@ -229,7 +210,7 @@
     <section id="whoami" class="container-fluid d-flex py-5">
         <div class="row justify-content-center align-items-center">
 
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 text-center">
+            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5 text-center">
 
                 <img class="rounded-circle img-fluid mb-5 profile-picture" src="{% static 'images/photo_profil.png' %}" alt="Photo de profil">
 
@@ -243,7 +224,7 @@
 
             <div class="col-xl-5 col-lg-5 col-md-10 col-sm-10">
 
-                <h1 class="title text-center mb-4">Qui suis-je ?</h1>
+                <h1 class="title text-center mt-md-3 mt-sm-3 mb-4">Qui suis-je ?</h1>
                 <p class="text-justify">Récemment diplômé d’un Baccalauréat Scientifique, je suis, depuis septembre 2019, étudiant dans l’école Campus Academy Nantes. C’est dans le cadre d’un projet d’école visant à mettre en œuvre et améliorer mes compétences que ce portfolio professionnel a vu le jour. Ce site a donc pour principal but de me présenter mais aussi de pouvoir prouver ma compétence et ma motivation. Afin de découvrir mon profil, je vous invite donc à visiter mon site, mon profil Linkedin ou bien mon CV à votre disposition. </p>
                 <h1 class="title text-center mt-4">Bonne visite !</h1>
 
@@ -265,7 +246,7 @@
                         <!-- <button id="btn-project-previous" class="btn-modern"> <i class="fas fa-angle-left fa-2x"></i> </button> -->
     
                         {% for project in projects %}
-                                {% if forloop.counter == 3 %}
+                                {% if forloop.counter == 1 %}
                                     <div data-project-index="{{ forloop.counter }}" class="project activeProject col-xl-8 col-lg-8 col-md-8 col-sm-8 text-center">
                                         <h1 class="text-center"> {{ project.name }} </h1>
                                         <img class="img-project my-3 w-75" src="{{ project.image.url }}" alt="Image du projet {{ project.name }}">
@@ -282,7 +263,7 @@
 
                 </div>
                 
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center mt-md-3 mt-sm-3">
 
                     <a href="{% url 'projects' %}" class="btn-modern">Plus de détails ici !</a>
                     
@@ -407,7 +388,7 @@
 
                     <div class="col-xl-1 col-lg-1"></div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-10 col-10-sm text-center">
+                    <div class="col-xl-4 col-lg-4 col-md-10 col-10-sm mt-xl-0 mt-lg-0 mt-md-5 mt-sm-5 text-center">
 
                         <!-- Texte -->
                         <h1 class="text-center mb-3"> Pourquoi me recommander ? </h1>
@@ -425,18 +406,25 @@
                 </div>
 
             </div>
-            <div class="col-12 py-4">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-6 text-center">
-                        <a href="{% url 'recommendations' %}" type="button" class="btn-modern link-reversed">Un coup d'oeil sur mes recommandations ?</a>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Section vers mur des recommandations -->
+    <a class="link-recommendation" href="{% url 'recommendations' %}">
+        <section id="redirect-recommend" class="container-fluid d-flex justify-content-center align-items-center py-3">
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 text-center">
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                    Un coup d'oeil sur mes recommandations ?
+                    <i class="fas fa-long-arrow-alt-left"></i>
                 </div>
             </div>
 
-        </div>
+        </section>
+    </a>
 
-    </section>
-
+    <!-- Footer -->
     <section id="footer" class="container-fluid d-flex justify-content-center align-items-center py-3">
 
         <div class="row justify-content-center align-items-center">

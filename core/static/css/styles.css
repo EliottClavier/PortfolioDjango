@@ -98,6 +98,11 @@ textarea {
     transition: 0.5s;
 }
 
+#trigger-sidebar-menu {
+    display: none;
+    z-index: 9999;
+}
+
 #sidebar:after {
     border-bottom: 29px solid rgba(0, 0, 0, 0);
     border-left: 20px solid #252423;
@@ -177,7 +182,7 @@ textarea {
 /* Onglet compétences, expériences, formation */
 
 
-/* Configuration de la side-bar projet */
+/* Configuration de la sidebar projet */
     #sidebar-contact-reco {
         display: flex;
         flex-direction: column;
@@ -196,6 +201,10 @@ textarea {
         border: 1px solid rgba(180,180,180,1);
 
         transition: 0.3s;
+    }
+
+    #sidebar-contact-reco.sidebar-contact-reco-activated {
+        right: 0;
     }
 
     .container-global-tabs {
@@ -264,17 +273,21 @@ textarea {
     .form-custom {
         display: block;
         width: 100%;
-        height: calc(1.5em + 0.75rem + 2px);
+        height: calc(2em + 0.75rem + 2px);
+
+        margin: 1em 0;
 
         color: #495057;
         border: none;
         border-bottom: 1px solid rgba(180,180,180,0.7);
         transition: 0.1s;
-    }
 
-    .form-custom {
         background-color: white;
         background-clip: padding-box;
+    }
+
+    textarea[class='form-custom'] {
+        height: 6em;
     }
 
     .form-custom:focus {
@@ -440,6 +453,21 @@ textarea {
         }
     }
 
+/* Section barre redirection recommandation */
+
+#redirect-recommend {
+    background-color: #252423;
+    transition: 0.3s ease-in;
+}
+
+#redirect-recommend:hover {
+    opacity: 0.95;
+}
+
+.link-recommendation, .link-recommendation:hover {
+    color: white;
+}
+
 /* Sections */
 
     section {
@@ -468,3 +496,93 @@ textarea {
             }
 
         }
+
+        /* Pour Mobile / Tablette */
+        @media (max-width: 1025px) {
+
+           #project, #loading-screen, #recommend {
+                min-height: 100vh;
+            }
+
+            #home {
+                min-height: 60vh;
+            }
+
+            #whoami, #projects, #contactme {
+                min-height: 0;
+            }
+
+        }
+
+/* Modification du style en format mobile / tablette */
+@media only screen, (max-width: 1025px) and (orientation: portrait){
+    #sidebar {
+        left: -100%;
+        width: 100%;
+        opacity: 0.90;
+    }
+
+    #sidebar.sidebar-menu-activated {
+        left: 0;
+    }
+
+    #trigger-sidebar-menu {
+        display: block;
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        height: 5em;
+        width: 5em;
+        background-color: snow;
+        border-radius: 50px;
+        border: none;
+    }
+
+    #sidebar:after {
+        display: none;
+    }
+
+    .sidebar-element {
+        justify-content: center;
+    }
+
+    .sidebar-hr {
+        color: transparent;
+        background-color: transparent;
+    }
+
+    .icon-text {
+        font-size: 2vh;
+    }
+
+    h2, h5 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+
+    #sidebar-contact-reco {
+        right: -100%;
+        width: 100%;
+    }
+
+    #sidebar-contact-reco.sidebar-contact-reco-activated {
+        right: 0;
+        width: 100%;
+    }
+
+    .form-custom, p {
+        font-size: 1.5rem;
+    }
+
+    .tabs {
+        font-size: 2rem;
+    }
+
+    .cross {
+        display: none;
+    }
+
+}
