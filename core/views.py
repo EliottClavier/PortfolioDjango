@@ -55,9 +55,9 @@ def ajax_contact(request):
                 subject = form.cleaned_data['messageObject'] + " - " + form.cleaned_data['companyName']
             else:
                 subject = form.cleaned_data['messageObject']
-            plain_message = form.cleaned_data['message']
+            plain_message = form.cleaned_data['mail'] + "\n" + form.cleaned_data['message']
             from_email = form.cleaned_data['mail']
-            to = 'eliott.clavier@students.campus.academy'
+            to = 'eliott.clavier.contact@gmail.com'
             mail.send_mail(subject, plain_message, from_email, [to])
         return JsonResponse({"success": True}, status=200)
     return JsonResponse({"success": False}, status=400)

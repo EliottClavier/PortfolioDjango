@@ -82,7 +82,7 @@ $(document).ready(function () {
    })
 
 
-    $('button.cross, button.btn-dismiss, button.btn-recommend-send, button.btn-contact-send').on('click', function() {
+    $('button.cross, button.btn-dismiss').on('click', function() {
 
        $('#sidebar-contact-reco').removeClass('sidebar-contact-reco-activated')
        $('div.overlay').css('z-index', -999).css('opacity', 0)

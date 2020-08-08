@@ -3,7 +3,7 @@
     padding : 0;
     box-sizing: border-box;
 
-    /* On cache la scrollbar de base, qu'on fait apparaitre de nouveau epndant le temps de chargement */
+    /* On cache la scrollbar de base, qu'on fait apparaitre de nouveau pendant le temps de chargement */
     overflow-y: hidden;
 }
 
@@ -419,9 +419,9 @@ textarea {
     /* Progress-bar */
 
     .progress {
-
         height: 4em;
         width: 100%;
+        overflow-y: hidden;
         background: rgba(220,220,220,1);;
         position: relative;
         border-radius: 0px;
@@ -431,6 +431,7 @@ textarea {
     .progress-bar {
         width: 0px;
         padding-top: 0.75em;
+        overflow-y: hidden;
         height: 4em;
         color:#fff;
         background: rgba(200,200,200,0.8);
