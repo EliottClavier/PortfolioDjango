@@ -6,8 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+
+    <!-- Intégration des CSS -->
     <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/toastr/toastr.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
     <link rel="icon" id="favicon" href="{% static 'images/logo-icon.svg' %}">
     <meta name="author" content="CLAVIER Eliott">
 
@@ -38,21 +43,15 @@
 
     {% block sidebar-menu %}{% endblock %}
 
-
-    <!-- Block contenant les sections de la page principale -->
+    <!-- Block contenant le contenu principal de chaque pages -->
     {% block main-page %} {% endblock %}
 
-    <!-- Block contenant la section de la page projet -->
-    {% block project %} {% endblock %}
-
-    <!-- Block contenant la section de la page recommandations -->
-    {% block recommendation %} {% endblock %}
-
-    <!-- Script d'intégration Bootstrap, jQuery, Popper.js -->
+    <!-- Script d'intégration Bootstrap, jQuery, Popper.js, Toastr -->
     <script src="{% static 'plugins/jquery-3.5.1.min.js' %}" crossorigin="anonymous"></script>
     <script src="{% static 'plugins/jquery.line.js' %}" crossorigin="anonymous"></script>
     <script src="{% static 'plugins/popper.min.js' %}" crossorigin="anonymous"></script>
     <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'plugins/toastr/toastr.min.js' %}" crossorigin="anonymous"></script>
 
     <!-- Script JS / jQuery -->
     <script src="{% static 'js/home_main_features.js' %}"></script>
