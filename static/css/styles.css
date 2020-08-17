@@ -5,6 +5,7 @@
 
     /* On cache la scrollbar de base, qu'on fait apparaitre de nouveau pendant le temps de chargement */
     overflow-y: hidden;
+
 }
 
 /* Enlève le glitch qui ajoute un padding au body à la fermeture des modal*/
@@ -42,6 +43,11 @@ li {
 textarea {
     resize: none;
     text-decoration: none;
+}
+
+/* Met un interligne facilitant la lecture */
+.readable-line-height {
+    line-height: 1.75em;
 }
 
 /* Écran qui grise la page lorsque la sidebar de contact est déroulé (changement du z-index et de l'opacité) */
@@ -115,12 +121,13 @@ textarea {
     transition: 0.5s;
 }
 
-#sidebar:hover {
-    width: 30rem;
-}
-
-#sidebar:hover::after {
-    left: 30rem;
+@media (hover: hover) {
+    #sidebar:hover {
+        width: 30rem;
+    }
+    #sidebar:hover::after {
+        left: 30rem;
+    }
 }
 
 .sidebar-element {
@@ -295,6 +302,49 @@ textarea {
         outline: none;
     }
 
+     /* Toast */
+    .toast {
+      visibility: hidden;
+      min-width: 25vw;
+      margin-left: -12.5vw;
+      background-color: #fff;
+      color: #000;
+      text-align: center;
+      border-radius: 10px;
+      padding: 16px;
+      position: fixed;
+      z-index: 50;
+      left: 50%;
+      bottom: 30px;
+      box-shadow: 0 20px 30px 5px rgba(31,35,65,0.37);
+    }
+
+    .toast.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+
 /* Croix pour quitter la sidebar */
     .cross {
         position: fixed;
@@ -401,8 +451,10 @@ textarea {
     }
 
     .img-project {
-        width: 100%;
-        height: auto;
+        /* Ratio 16/9 */
+        width: 35.5vw;
+        height: 20vw;
+
         box-shadow: 0 20px 30px 5px rgba(31,35,65,0.37);
         border-radius: 8px;
     }
@@ -456,16 +508,16 @@ textarea {
 
 /* Section barre redirection recommandation */
 
-#redirect-recommend {
+.redirect-bar {
     background-color: #252423;
     transition: 0.3s ease-in;
 }
 
-#redirect-recommend:hover {
+.redirect-bar:hover {
     opacity: 0.95;
 }
 
-.link-recommendation, .link-recommendation:hover {
+.link-bar, .link-bar:hover {
     color: white;
 }
 

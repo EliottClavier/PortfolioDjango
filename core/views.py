@@ -77,3 +77,7 @@ def recommendations(request):
     return render(request, 'core/recommend.html', {
         'recommendations': recommendations
     })
+
+
+def internship(request):
+    return render(request, 'core/internship.html')

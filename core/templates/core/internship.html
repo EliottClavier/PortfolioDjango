@@ -1,0 +1,442 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block title %} Rapport de stage - Atlantic Soft {% endblock %}
+
+<!-- Même sidebar que dans la home page mais avec des liens différents (pour rediriger vers la homepage) -->
+{% block sidebar-menu %}
+
+    <button id="trigger-sidebar-menu" class="btn-modern-reverse"><i class="fas fa-bars fa-2x"></i></button>
+
+    <nav id="sidebar" class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+
+                <a id="icon-flag" class="js-scrollTo sidebar-element" href="{% url 'home' %}#home">
+                    <span class="icon-fa"><i class="far fa-flag fa-2x"></i></span>
+                    <span class="icon-text"> Accueil </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#whoami">
+                    <span class="icon-fa"><i class="fas fa-user fa-2x"></i></span>
+                    <span class="icon-text"> Qui suis-je ? </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#projects">
+                    <span class="icon-fa"><i class="fas fa-cubes fa-2x"></i></span>
+                    <span class="icon-text"> Mes projets </span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a class="js-scrollTo sidebar-element" href="{% url 'home' %}#experiencesandskills">
+                    <span class="icon-fa"><i class="fas fa-briefcase fa-2x"></i></span>
+                    <span class="icon-text"> Mes compétences et expériences</span>
+                </a>
+
+                <hr class="sidebar-hr">
+
+                <a id="icon-phone" class="js-scrollTo sidebar-element" href="{% url 'home' %}#contactme">
+                    <span class="icon-fa"><i class="fas fa-phone fa-2x"></i></span>
+                    <span class="icon-text"> Contactez moi ! </span>
+                </a>
+
+            </div>
+        </div>
+
+    </nav>
+
+{% endblock %}
+
+<!-- Titre de la page -->
+{% block main-page %}
+
+    <!-- Section Projets Autre Page -->
+
+    <section class="container-fluid d-flex py-5">
+
+            <div class="row justify-content-center align-items-center">
+
+                <div class="col-12 text-center">
+                    <h1 class="title">Rapport de stage - Atlantic Soft</h1>
+                </div>
+
+                <div class="col-10 justify-content-center align-items-center">
+                    <p style="font-style: italic" class="readable-line-height text-center my-3">
+                        Vous trouverez ici la page dédiée à la présentation de mon rapport de stage chez Atlantic Soft lors du mois de Juillet 2020
+                        sous format Web. Chacune des parties ci-dessous seront explicitées selon les critères fournis et avec la justesse et clareté demandée.
+                    </p>
+                </div>
+
+                <div class="col-xl-8 col-lg-8 col-md-11 col-sm-11 justify-content-center align-items-center">
+                    <h1 class="title text-center my-3">Sommaire</h1>
+
+                    <ul class="text-left mx-5">
+                        <li class="my-4"><h3>I - Remerciements</h3></li>
+                        <li class="my-4"><h3>II - Préambule et choix de la mission</h3></li>
+                        <li class="my-4"><h3>III - L'entreprise et le client</h3></li>
+                        <li class="my-4"><h3>IV - Mon rôle et mes missions</h3></li>
+                        <li class="my-4"><h3>V - Processus, méthodologie et outils de travail</h3></li>
+                        <li class="my-4"><h3>VI - Synthèse des compétences</h3></li>
+                        <li class="my-4"><h3>VII - Retour sur l'expérience et analyse de l'expérience</h3></li>
+                    </ul>
+                </div>
+
+            </div>
+    </section>
+
+    <a name="topinternship"></a>
+    <div class="row justify-content-center py-5">
+        <div class="container-global-tabs col-xl-10 col-lg-10 col-md-12 col-sm-12 w-100 mx-5">
+
+            <div class="container-tabs">
+                <div class="tabs active" data-displayed="1">I</div>
+                <div class="tabs" data-displayed="2">II</div>
+                <div class="tabs" data-displayed="3">III</div>
+                <div class="tabs" data-displayed="4">IV</div>
+                <div class="tabs" data-displayed="5">V</div>
+                <div class="tabs" data-displayed="6">VI</div>
+                <div class="tabs" data-displayed="7">VII</div>
+            </div>
+
+            <!-- Remerciements -->
+            <div class="content activeContent" data-displayed="1">
+                <div class="container-fluid d-flex py-5">
+
+                    <div class="row justify-content-center align-items-center">
+
+                        <div class="col-10 text-center">
+                            <h1 class="title">I - Remerciements</h1>
+                        </div>
+
+                        <div class="col-10 justify-content-center align-items-center">
+
+                            <p class="text-justify readable-line-height my-3">
+                                Je tiens tout d’abord, en ce début de rapport, à remercier les personnes qui m’ont accueilli et contribué au bon déroulement du stage, à savoir mon maître de stage Daniel ainsi que Julien qui ont su, au-delà d’être pédagogue, transmettre des connaissances et m’ont donné des responsabilités auxquelles je ne prétendais pas à titre de stagiaire en plus de répondre à mes questionnements et faire vivre de nouvelles passions et motivations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- Préambule et choix de la mission -->
+            <div class="content" data-displayed="2">
+                <div class="container-fluid d-flex py-5">
+
+                    <div class="row justify-content-center align-items-center">
+
+                        <div class="col-10 text-center">
+                            <h1 class="title">II - Préambule et choix de la mission</h1>
+                        </div>
+
+                        <div class="col-10 justify-content-center align-items-center">
+
+                            <p class="text-justify readable-line-height my-3">
+                                Dans des circonstances complexes et peu propices à la réussite dans le cadre d’une recherche de stage, c’est en début du mois de Juin qu’une opportunité de stage s’est présentée dans une entreprise locale, située à Pornic : Atlantic Soft. <br> <br>
+                                Après un entretien pour discuter de mon profil, de mon expérience, et de mes envies ainsi que de l’activité d’Atlantic Soft et ses projets, cette opportunité s’est trouvée parfaitement venue car correspondant à mes attentes. <br> <br>
+                                En effet, l’école ayant offert, tout au long de la première année, une formation orientée majoritairement développement Web, je voulais avoir l’occasion de changer de domaine, notamment pour pouvoir expérimenter le développement logiciel, qui dans les fondements, garde des principes communs, mais qui a des enjeux et des demandes souvent différents, auxquels je n’étais accoutumé. <br> <br>
+                                Mes objectifs sont alors clairement établis : ce stage sera l’occasion pour moi d’acquérir une première expérience en tant que développeur, apprendre des deux professionnels qui m’encadreront, découvrir un nouveau domaine du métier auquel je me forme et me former sur une nouvelle technologie tout au long du stage. <br> <br>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- Présentation de l'entreprise -->
+            <div class="content" data-displayed="3">
+                <div class="container-fluid d-flex py-5">
+
+                        <div class="row justify-content-center align-items-center">
+
+                            <div class="col-10 text-center">
+                                <h1 class="title">III - L’entreprise et le client</h1>
+                            </div>
+
+                            <div class="col-10 justify-content-center align-items-center">
+
+                                <h3 class="my-3">III.1 - Présentation de l’entreprise</h3>
+
+                                <p class="text-justify readable-line-height my-3">
+                                    Atlantic Soft est une société de service informatique crée en 2018 par Julien BONNIER et Daniel HENRY, deux anciens associés qui à la suite d’un départ au sein de leur ancienne entreprise, ont décidé de construire leur propre projet autour de la même activité, proposant ainsi divers services et solutions informatiques à leurs clients. L’entreprise se situe actuellement dans des bureaux à Pornic et le personnel s’élève à deux, soit les deux fondateurs.
+                                </p>
+
+                                <div class="text-center">
+                                    <figure>
+                                        <img class="w-25 h-25 p-3 img-project" src="{% static "images/internshipAtlanticSoft/LogoAS.png" %}" alt="">
+                                        <figcaption class="mt-4"><p><i>Le logo d'Atlantic Soft</i></p></figcaption>
+                                    </figure>
+                                </div>
+
+                                <p class="text-justify readable-line-height my-3">
+                                    L’entreprise s’étend à l’échelle nationale : elle gère plus de 70 clients, principalement des PME, dont les besoins techniques variés trouvent leurs solutions dans le panel de compétences de l’entreprise. Ces entreprises clientes sont implantées dans des domaines souvent très différents les unes des autres ; l’activité d’Atlantic Soft ne cible pas les entreprises pour leur domaine mais pour leurs demandes / leurs projets. <br> <br>
+                                    Même si chacun des associés possèdent énormément de connaissances en informatique, l’organisation du travail au sein d’Atlantic soft se fait de sorte que Julien s’occupe principalement de la partie dite technique (administrations des systèmes et réseaux) là où Daniel aborde la partie logicielle (développement d’ERP sur mesure avec le logiciel Oxygène et développement logiciel sur Windev). <br> <br>
+                                    Malgré la jeunesse de l’entreprise, des valeurs fortes et essentielles sont déjà établies et permettent le maintien de l’entreprise ainsi que la confiance de leurs clients. Cette confiance passe déjà par l’honnêteté du prestataire vis-à-vis de son client, notamment sur le coût des prestations qui ne doit pas s’adapter aux ressources financières du client. <br> <br>
+                                    La satisfaction des clients avant tout, l’entretien de relations proches, cordiales et de confiance avec ces derniers d’une part constituent les premiers piliers de marque pour les deux associés qui tiennent également chacun à ce que chaque décision soit commune, réfléchie et approuvée pour garder un environnement de travail sain qui ne remet pas en doute leur travail auprès de leurs clients. <br> <br>
+                                </p>
+
+                                <h3 class="my-3">III.2 - Activité de l'entreprise </h3>
+
+                                <p class="text-justify readable-line-height my-3">
+                                    Une des compétences principales d’Atlantic Soft, répondant aux besoins d’une majeure partie de leurs clients est leur capacité de mise en place et de paramétrage d’ERP (Entreprise Resource Planning) basé sur la gamme OXYGÈNE. Un ERP est un outil informatisé qui permet la gestion d’une entreprise, en embarquant, dans un même logiciel avec une seule base de données, toutes les fonctionnalités nécessaires à la gestion de l’ensemble de l’activité de l’entreprise. <br> <br>
+                                </p>
+
+                                <div class="text-center">
+                                    <figure>
+                                        <img class="w-25 h-25 p-3 img-project" src="{% static "images/internshipAtlanticSoft/LogoOxygène.png" %}" alt="">
+                                        <figcaption class="mt-4"><p><i>Le logo d'Oxygène</i></p></figcaption>
+                                    </figure>
+                                </div>
+
+                                <p class="text-justify readable-line-height my-3">
+                                    La solution OXYGÈNE quant à elle est un produit de l’entreprise française MEMSOFT proposant différents composants de gestion (Comptabilité, Gestion Commerciale, Paie et RH, Gestion d’Affaires, …). La particularité vis-à-vis des concurrents de cette solution est qu’en plus d’être abordable financièrement (la première copie est gratuite notamment), OXYGÈNE est en grande partie paramétrable. En tant que partenaire MEMSOFT, Atlantic Soft propose donc à ses clients des conseils vis-à-vis des différents composants / produits de cette solution et les paramètre en fonction du besoin considéré. Ainsi, chaque client manipule un ERP différent développé sur mesure mais basé sur le même noyau possédé par l’éditeur, MEMSOFT. <br> <br>
+                                    D’ailleurs, Atlantic Soft suggère également de s’occuper de l’hébergement de chaque ERP au sein même de leur serveur, afin d’éviter des coûts supplémentaires aux entreprises (l’installation et la maintenance d’un serveur peuvent être coûteux pour des petites entreprises) mais aussi de permettre une meilleure évolutivité et sécurisation des données de chaque client, qui peuvent accéder à leur logiciel de gestion en accès SaaS (Software as a Device) directement sur le serveur d’Atlantic Soft. <br> <br>
+                                    Par ailleurs, Atlantic Soft essaye peu à peu de se diversifier jusqu’à développer de nouvelles solutions sans l’intervention d’Oxygène ; l’entreprise a récemment adopté la technologie de PC Soft, WinDev, autour de laquelle la majeure partie de mon stage s’est déroulée. <br> <br>
+                                    En parallèle, Atlantic Soft propose également à ses clients un module EDI (Échange de Données Informatisées) pour permettre l’échange de documents entre l’entreprise concernée et le client, mais aussi, en tant que partenaire Microsoft, la mise en place d’une messagerie basée sur Office 365. Enfin, Atlantic Soft peut s’occuper de la gestion des systèmes d’informations de leurs clients, d’un point de vue sécurité, maintenance et sauvegarde des données. <br> <br>
+                                    On retrouve encore parmi les services proposés la réalisation d’audit sur des parcs informatiques (vérification de la sécurité du réseau, des données, des sauvegardes, …), la vente et installation de matériel informatique, si besoin il y a et la gestion de téléphonie VoiP. <br> <br>
+                                </p>
+
+                                <h3 class="my-3">III.3 - Marché et concurrents </h3>
+
+                                <p class="text-justify readable-line-height my-3">
+                                    L’activité principale d’Atlantic Soft réside dans le développement et l’adaptation de l’ERP sous Oxygène, qui couvre de nombreuses problématiques de gestion pour une entreprise.
+                                    Une activité aussi large, approfondie mais surtout demandée incombe des concurrents, ce à quoi Atlantic Soft n’échappe pas, et donc s’en démarque. Parmi les concurrents notables, on retient Sage qui propose également ses solutions de gestion comptable, d’entreprise, de paie et de ressources humaines pour un spectre de clients plus conséquent (3 millions de clients, parmi lesquels des TPE mais aussi PME et ETI). On retrouve aussi EBP, qui couvre globalement les mêmes problématiques que Sage grâce à leurs solutions informatiques, et ce, pour plus de 500 000 clients. <br> <br>
+                                    Atlantic Soft doit donc faire face à ces concurrents (et à leurs revendeurs), ce qui explique notamment leur ouverture à tout domaine même si en réalité, Atlantic Soft n’est pas uniquement fermée à cette activité (car comme explicité auparavant, le panel de compétences de l’entreprise permet de couvrir d’autres besoins). Si Atlantic Soft arrive à fidéliser ses clients, c’est d’une part grâce à leurs valeurs et à leur proximité mais aussi car ils proposent une solution logicielle complètement paramétrable et donc adaptable à chaque besoin d’un client sans changer pour un autre là où Sage et EBP notamment, par leur étendue, ne peuvent pas se permettre cette flexibilité et donc plie leurs clients à leur manière de faire, ce qui ne permet pas forcément la satisfaction client totale. <br> <br>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                </div>
+            </div>
+            <!-- Mon rôle et mes missions -->
+            <div class="content" data-displayed="4">
+                <div class="container-fluid d-flex py-5">
+
+                    <div class="row justify-content-center align-items-center">
+
+                        <div class="col-10 text-center">
+                            <h1 class="title">IV - Mon rôle et mes missions</h1>
+                        </div>
+
+                        <div class="col-10 justify-content-center align-items-center">
+
+                            <p class="text-justify readable-line-height my-3">
+                                De part la taille de l’entreprise, il n’y a pas de service à proprement parler ; néanmoins il est clair que mon stage s’est en totalité orienté vers le développement logiciel. Mon rôle y est de faire avancer un projet déjà mis en route, qui sera détaillé par la suite dans la prochaine partie. Ce rôle a donc pour but de faire avancer le projet en y appliquant les idées émises, sans pour autant m’empêcher d’y apporter mon avis et ma vision des choses pour faire avancer le projet, c’est pourquoi je décrirais ce rôle comme plutôt libre, ce qui est une chance et un moyen d’expérimentation dont découlent des réussites mais aussi des erreurs desquels il faut apprendre pour corriger le tir. <br> <br>
+                                Parmi les contraintes du rôle, sur lesquels nous reviendront plus tard, on y retrouve les exigences du client mais aussi le temps. En effet, la situation du projet évoluera tout au long de ma période de stage ; pendant les deux premières semaines, la maquette du projet n’a pas encore été validée (elle n’est encore qu’une proposition à la demande exaucée) là où par la suite, le projet est véritablement mis sur les rails car validé par le client. Ce dernier demandera alors des résultats chaque semaine, pour voir une évolution nette du projet. <br> <br>
+                                Malgré mon statut de stagiaire, je prends à cœur ce projet avec lequel je familiarise le plus rapidement possible. La réussite ou la non-réussite de mes missions n’ont pas tout le temps un impact direct sur l’entreprise, car malgré la contrainte du temps, la marge de manœuvre est assez large pour pouvoir essayer et reconstruire. Malgré cela, j’ai tout de même à cœur de mener mes missions à termes et de voir mon travail porter ses fruits, pour obtenir un résultat qui satisfait le client.<br> <br>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- Processus, méthodologie et outils de travail -->
+            <div class="content" data-displayed="5">
+                <div class="container-fluid d-flex py-5">
+
+                    <div class="row justify-content-center align-items-center">
+
+                        <div class="col-10 text-center">
+                            <h1 class="title">V - Processus, méthodologie et outils de travail</h1>
+                        </div>
+
+                        <div class="col-10 justify-content-center align-items-center">
+
+                            <p class="text-justify readable-line-height my-3">
+                                Comme exprimé précédemment, la majorité de mon stage a été axé autour de la nouvelle activité qu’Atlantic Soft développe, consistant au développement de nouvelles solutions informatiques avec WinDev, qu’Oxygène ne pouvait résoudre. Mon stage s’étant donc orienté vers cette technologie, il est d’abord essentiel d’en faire les présentations.
+                            </p>
+
+                            <h3 class="my-3"> V.1 – WinDev </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                WinDev est un atelier de génie logiciel (AGL) édité par PC Soft, une société française qui, depuis 1993, entretien son outil de développement d’application pour Windows, Linux, .NET et Java (WinDev est actuellement en version 25). Il est important de souligner plusieurs particularités de WinDev. <br> <br>
+                            </p>
+                            <div class="text-center">
+                                <figure>
+                                    <img class="w-25 h-25 p-3 img-project" src="{% static "images/internshipAtlanticSoft/LogoWinDev.png" %}" alt="">
+                                    <figcaption class="mt-4"><p><i>Le logo de WinDev 25</i></p></figcaption>
+                                </figure>
+                            </div>
+                            <p class="text-justify readable-line-height my-3">
+                                Tout d’abord, WinDev permet de couvrir énormément de besoins logiciels, ce qui facilite leurs conceptions. Par exemple, WinDev contient un éditeur d’analyse (c’est-à-dire un éditeur de conception de base de données), un éditeur de fenêtres qui permet la création quasi-instantanée de fenêtre dans un logiciel avec l’ajout de nombreux composants à l’intérieur de ces dernières (champs, boutons, etc.), un éditeurs de requêtes SQL et bien plus encore ; ainsi, toutes les phases de développement sont considérablement accélérées car chaque élément est créé grâce à un assistant visuel, et chaque élément crée est paramétrable en profondeur. <br> <br>
+                            </p>
+
+
+
+                            <div class="text-center">
+                                <figure>
+                                    <img class="img-project" src="{% static "images/internshipAtlanticSoft/Analyse.png" %}" alt="">
+                                    <figcaption class="mt-4"><p><i>L’éditeur d’analyse, on peut apercevoir l’analyse du projet qui a orienté mon stage</i></p></figcaption>
+                                </figure>
+                            </div>
+
+                            <p class="text-justify readable-line-height my-3">
+                                Mais WinDev est un outil de développement avant tout et laisse la liberté de coder au sein même des éléments disposés dans les fenêtres crées. WinDev utilise son propre langage, le WLangage, qui possède à son tour un grand nombre de fonctions déjà faites qui facilite la partie développement. <br> <br>
+                                Enfin, WinDev est accompagné de deux autres AGL, WebDev et WinDev Mobile, construit sur une base commune, qui permettent d’une part la conception d’applications web et d’autre part d’application mobile. Il existe d’ailleurs une option WinDev pour convertir son projet en application web ou mobile. <br> <br>
+                            </p>
+
+                            <h3 class="my-3"> V.2 – Situation initiale et chronologie </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                Avant d’expliciter dans les détails le travail et les observations réalisés durant le stage, il est important de mettre en place la chronologie et les étapes du stage pour pouvoir observer l’évolution du projet mené ainsi que mon rôle. <br> <br>
+                            </p>
+
+                            <h3 class="my-3"> V.2.1 – Première semaine : découverte et appropriation de la mission </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                Lors de mon premier jour de stage, mon maître de stage m’a d’abord fait la proposition suivante : il me laissait le choix entre travailler sur un projet dont un bon nombre de bases étaient posées ou travailler sur l’élaboration d’un projet plus personnel, toujours en WinDev, en réalisant un service Windows. J’ai alors choisi de participer au projet déjà démarré, dont il est essentiel d’en comprendre le contexte et les enjeux. <br> <br>
+                                Ce projet consiste en l’élaboration d’un logiciel de gestion pour un des plus grands cabinets luxembourgeois de kinésithérapeutes. Cette demande fait suite au vieillissement de leur logiciel actuel qui n’est désormais plus maintenu par la développeuse qui l’a conçu, il y a de cela plus de 20 ans. L’enjeu est donc de proposer un logiciel à leur convenance qui respecte aussi les habitudes actuelles du client, qui veut conserver une majeure partie des fonctionnalités déjà accessibles sur l’ancien logiciel. <br> <br>
+                                Voici donc le cadre dans lequel je fus plongé durant 1 mois et plus particulièrement sur une composante majeure du logiciel, s’orientant autour du planning. <br> <br>
+                                Néanmoins, en tout début de stage, l’objectif était de me familiariser avec l’outil WinDev ainsi qu’avec le logiciel (sa structure, les éléments essentiels développés ou à développer). A noter que j’avais au préalable aborder le sujet chez moi en suivant la documentation disponible sur PC Soft, pour ne pas être perdu à mon arrivée en stage. <br> <br>
+                                Mes premières missions consistaient d’abord à corriger des bugs mineurs ou bien implémenter des fonctionnalités légères, même si j’en suis vite arrivé à aborder la partie planning et rendez-vous, dont une base était déjà posée, mais très loin de ressembler à la forme qu’elle prendra alors 1 mois plus tard. <br> <br>
+                            </p>
+
+                            <div class="text-center">
+                                <figure>
+                                    <img class="img-project" src="{% static "images/internshipAtlanticSoft/Base.png" %}" alt="">
+                                    <figcaption class="mt-4"><p><i>La forme du module agenda / planning à mon arrivée. On trouve l’agenda d’un kinésithérapeute sélectionné sur la majeure partie de l’écran, ainsi qu’un tableau affichant les créneaux disponibles et un autre affichant les séances d’un patient en fonction de la sélection</i></p></figcaption>
+                                </figure>
+                            </div>
+
+                            <p class="text-justify readable-line-height my-3">
+                                L’état du module planning actuel ne convient pas à Daniel, qui voudrait quelque chose de plus explicite, aéré et qui laisse la place principalement au planning avec la fonctionnalité de pouvoir afficher plusieurs plannings de kinésithérapeutes à la fois. C’est ainsi que mes recherches commencèrent dans la documentation sur les champs et les méthodes pouvant être utilisées. <br> <br>
+                            </p>
+
+                            <h3 class="my-3"> V.2.2 – Deuxième semaine : une deuxième puis troisième version du module planning </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                La fin de la première semaine m’avait laissé le temps de mettre en place une deuxième version du module planning, qui me laissait perplexe, car elle ne remplissait pas mes attentes et ne correspondait pas vraiment aux idées que nous avions échangés avec Julien et Daniel. En début de cette nouvelle semaine, Daniel me fait part de nouvelles fonctionnalités à ajouter ainsi que certaines modifications à implanter. Il m’explique également que lui et Julien partent en fin de semaine au Luxembourg pour présenter le projet (encore sous forme de maquette) ; donner une forme convenable et à la hauteur de nos attentes au planning serait alors plus crédible auprès du client. <br> <br>
+                                La situation finit par se débloquer, notamment car j’appréhende de plus en plus WinDev et par conséquent je peux avancer sur le module de la manière dont il était pensé à la base. Naquit alors la troisième version du module (dont nous évoquerons les fonctionnalités ajoutées par la suite). <br> <br>
+                            </p>
+
+                            <h3 class="my-3"> V.2.3 – Troisième semaine : approbation et modification </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                L’enjeu de l’entretien avec le client luxembourgeois le vendredi de la deuxième semaine était bien plus qu’une démonstration sur une maquette pour faire le point, puisqu’en réalité, le client avait fait appel à deux prestataires, Atlantic Soft et un concurrent, afin de faire le choix du projet correspondant le plus à ses attentes. <br> <br>
+                                Le chef de cabinet fait alors son choix, qui s’oriente vers Atlantic Soft car il recherche un logiciel correspondant à ses envies et ses habitudes, là où le concurrent présentait un logiciel déjà fait auquel les kinésithérapeutes auraient eu à s’adapter. <br> <br>
+                                Ainsi, la troisième semaine continue dans la même veine que les deux précédentes, où je continue de développer mon module de planning, en y apportant les modifications et les demandes qui me parviennent de Daniel mais aussi du chef de cabinet, qui à partir de ce moment exige d’avoir accès au projet chaque semaine, pour faire ses remarques et constater l’avancée du développement. <br> <br>
+                                C’est aussi durant cette troisième semaine que débute l’importation d’excel contenant les données du logiciel actuellement en place par le biais d’un module qui contient des scripts d’importation. La difficulté principale est de garder les informations essentielles de l’ancienne base de données ; il s’agit alors de les identifier, ce qui n’était parfois pas évident, compte tenu de l’absence de documentation sur le logiciel et une manière d’organiser les données différentes. <br> <br>
+                            </p>
+
+                            <h3 class="my-3"> V.2.4 – Quatrième semaine : Optimisation, modification et satisfaction </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                La quatrième semaine marque la fin de cette expérience professionnelle certes, mais aussi l’accomplissement de la partie du projet dont je me suis occupé tout le long. <br> <br>
+                                Les derniers jours me permettent de me pencher sur des détails, notamment d’optimisation de requêtes SQL, et sur des nouvelles fonctionnalités, comme l’ajout d’absence à natures variées sur le planning pour compléter la gestion des rendez-vous en place depuis un long moment. <br> <br>
+                                C’est aussi à ce moment que je commence à manipuler de vraies données, et donc de tester les limites du logiciel, tout en prenant soin de laisser à mon départ une trace fonctionnelle dont je peux être satisfait, même si certains ajouts et corrections attendent d’être implémentés. <br> <br>
+                            </p>
+
+                            <div class="text-center">
+                                <figure>
+                                    <img class="img-project" src="{% static "images/internshipAtlanticSoft/Final.png" %}" alt="">
+                                    <figcaption class="mt-4"><p><i>L’état du module planning à mon départ de stage</i></p></figcaption>
+                                </figure>
+                            </div>
+
+                            <h3 class="my-3"> V.3 – Méthodologies et organisation du travail </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                L’entreprise encadrant un petit effectif, les processus sont plutôt simples ; pour ce qui est de mon travail, j’échange régulièrement avec Daniel et Julien sur son avancée, mais aussi sur les difficultés rencontrées, souvent liées à ma non-connaissance de certaines fonctionnalités de l’outil WinDev ou parfois par la difficulté à trouver une solution pour résoudre un problème donné, malgré la documentation en ligne ainsi que le forum. Ces méthodologies me laissent alors beaucoup de liberté et de responsabilités car je recherche majoritairement des informations en ligne ; néanmoins je veille à ne pas m’écarter du sujet et de mon travail et je demande régulièrement un avis ou bien une mise au point. <br> <br>
+                                La répartition des tâches entre Daniel et moi est simple : nous développons chacun notre module sans pour autant s’isoler comme expliqué précédemment. En conclusion, je considère ne pas avoir rencontrés de difficultés majeures au point de stagner longuement, et cela grâce aux échanges, aux avis partagés et aux informations disponibles sur le forum en ligne ou fournies par l’éditeur lui-même. <br> <br>
+                            </p>
+
+                            <h3 class="my-3"> V.4 – Synthèse du travail réalisé </h3>
+
+                            <p class="text-justify readable-line-height my-3">
+                                Pour donner suite à la chronologie de mon stage, il est pertinent de voir plus en détails le travail réalisé en tenant compte des évolutions et des erreurs commises. <br> <br>
+                                Il est maintenant évident que la majeure partie de mon travail s’est orienté autour du module planning. Voici les réalisations majeures effectuées : <br> <br>
+                                - Affichage du planning de chaque kinésithérapeute du cabinet dans un même champ. Le planning comporte les rendez-vous (avec les informations relatives) ainsi que les absences (congés, période de formation, …). Le champ planning n’affiche que les horaires des kinésithérapeutes qui ont au préalable été sélectionné dans une liste, pour ajouter plus de modularité et permettre de n’afficher que les informations importantes pour l’utilisateur. A noter que l’affichage du planning s’oriente autour d’une grande fonction qui actualise les données à chaque changement et interaction avec le logiciel. Elle gère l’affichage des kinésithérapeutes sélectionnés, les horaires ouvrables pour chacun d’entre eux ainsi que les rendez-vous et absences déjà planifiés, ce qui représente énormément de données ; la fonction a de être optimisée et repensée plusieurs fois pour ne pas ralentir le logiciel (cette fonction est en permanence utilisé pour rafraichir les données à chaque modification.
+                            </p>
+
+                            <div class="text-center">
+                                <figure>
+                                    <img class="img-project" src="{% static "images/internshipAtlanticSoft/ExtraitFonction.png" %}" alt="">
+                                    <figcaption class="mt-4"><p><i>Un extrait de cette fonction qui a dû être optimisé maintes et maintes fois</i></p></figcaption>
+                                </figure>
+                            </div>
+
+                            <p class="text-justify readable-line-height my-3">
+                                - Gestion des rendez-vous. Les rendez-vous planifiés, validés (qui se sont déroulés) et où le patient a été absent sont affichés dans un tableau (en fonction du patient sélectionné dans un champ de recherche) et indiqués avec un code couleur correspondant. Ce tableau contient également les séances à programmer (obtenu en fonction de l’ordonnance du patient). Il est possible avec un Drag&Drop depuis ce tableau vers le champ planning d’ajouter, pour un kinésithérapeute, le rendez-vous concerné, qui prend alors le statut de planifié. <br> <br>
+                                - Gestion des absences. Chaque utilisateur a la possibilité d’ajouter une absence pour divers motifs. <br> <br>
+                                - Edition des rendez-vous et absences. Il est possible par le biais de menu contextuel et raccourci de changer d’un rendez-vous statut, d’y ajouter une note et bien de le supprimer et donc de réinitialiser le tableau de séance pour un patient. Les absences peuvent être supprimées et précisées par le biais de note. <br> <br>
+                                - Importation d’excel grâce à un module d’importation crée spécifiquement. Ce module nous a permis de manipuler des vrais données (car issus du logiciel utilisé par le cabinet). Cela nous a permis de remarquer un problème de performance sur le module planning, ce qui a suivi une phase d’optimisation. <br> <br>
+                                - Création des requêtes SQL venant chercher les informations dans plusieurs tables (séances, ordonnances, kinésithérapeutes, absences, …). De même, il a été nécessaire d’éditer la base de données pour ajouter des tables ou champs manquants pour certaines situations. Ces requêtes ont également demandé un effort d’optimisation, car plus les données sont importantes et plus le logiciel est susceptible de ralentir. <br> <br>
+                                Il ne s’agit ici que de la description des fonctionnalités dans leur globalité et il serait possible de penser que le travail fourni n’est pas si conséquent. Je tiens alors à préciser qu’avant d’obtenir la forme actuelle du module, il a fallu à plusieurs reprises reconstruire et repenser la manière d’opérer. De plus, ces fonctionnalités interagissent toutes ensemble, et la complexité du développement résidait parfois à faire transmettre les informations entre chaque fonctionnalité, les enregistrer dans la base de données, actualiser l’affichage le tout sans que l’utilisateur ne remarque toutes ses étapes. <br> <br>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- Synthèse des compétences -->
+            <div class="content" data-displayed="6">
+                <div class="container-fluid d-flex py-5">
+
+                        <div class="row justify-content-center align-items-center">
+
+                            <div class="col-10 text-center">
+                                <h1 class="title">VI - Synthèse des compétences</h1>
+                            </div>
+
+                            <div class="col-10 justify-content-center align-items-center">
+
+                                <p class="text-justify readable-line-height my-3">
+                                    Avant d’aborder la synthèse des soft skills, qui sont les compétences ayant le plus été mises à profit lors du stage, voici un rapide survol sur les hard skills. Globalement, on peut scinder les hard skills nouvellement acquis et ceux maintenus et développés depuis le début de la formation. WinDev est selon le moi la compétence ayant été la plus développée après avoir manipulé l’outil pendant un mois complet, et comme expliciter précédemment, le logiciel fait intervenir énormément de notions vues en cours, du simple code et des fondements de l’algorithmie à la gestion d’une base de données et de requêtes dirigées. <br> <br>
+                                    En termes de soft skills, la principale compétence à mettre en œuvre est l’analyse du problème pour ensuite réfléchir à une potentielle solution. Viens ensuite la phase de recherche, qui s’optimise avec l’expérience et la connaissance de l’outil manipulé. Enfin, il s’agit de mettre en pratique le fruit de la recherche ainsi que sa logique pour faire fonctionner les éléments nécessaires ensemble. Concrètement, ces étapes peuvent être rassemblées dans une seule compétence : développer. Évidemment, cette compétence est beaucoup plus large et ne suit jamais un schéma fixe mais ces quelques pierres fondatrices constituent pour moi le schéma que j’ai appliqué tout au long du mon stage accompagné également d’une deuxième compétence plus qu’essentiel : la communication. <br> <br>
+                                    En effet, malgré le fait que je développais seul un module, cela ne rendait pas la communication obsolète car le partage d’avis, d’idées permet la prise de recul et la réadaptation pour obtenir ce qui se rapproche le plus du concept tel qu’il a été établi à la base. <br> <br>
+                                    D’autres compétences, pas nécessairement spécifique au métier de développeur, mais s’y appliquant largement, n’ont pas manqué d’être présente, notamment la patience et la détermination. Il se peut parfois qu’un problème ne peut pas être résolu pour plusieurs facteurs, ce qui fait perdre du temps et de la patience. Et pourtant, viens ce moment ou la solution parait évidente et le problème simple. Ce moment serait inaccessible si le développeur ne se donnait pas les moyens de réussir et abandonnait à la moindre difficulté, ce qui viens aussi à aborder le concept de maturité, qui s’accumule avec l’expérience certes, mais aussi avec la détermination d’aller au bout des choses même si cela n’est pas pertinent ou ne donne pas le résultat escompté. <br> <br>
+                                    Ainsi apprendre de ses erreurs est une compétence clé à son tour, car elle permet de s’affiner progressivement et de gagner en productivité. Enfin la curiosité, sans laquelle le développeur peut rester fermé et bloqué dans ses acquis, parait plus que fondamentale sans quoi l’individu n’évolue pas, stagne et ne résout plus les problèmes de la manière la plus optimale ou adapté à la demande. <br> <br>
+                                    Globalement, toutes ces compétences ont été abordées explicitement ou implicitement lors de l’année de formation, mais il est toujours plus intéressant d’en venir à la pratique et de se rendre compte du véritable potentiel pouvant être atteint avec le temps (potentiel observable chez les deux professionnels qui m’ont encadré). C’est en ça que le stage correspondait à mes attentes, car apprendre de soi d’une part mais aussi des autres est précisément l’objectif d’un stage : ce dernier m’a permis de confirmer mes choix, me conforter dans certains questionnements et de voir le chemin à parcourir. <br> <br>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+            </div>
+            <!-- Retour sur l'expérience et analyse de l'expérience -->
+            <div class="content" data-displayed="7">
+                <div class="container-fluid d-flex py-5">
+
+                    <div class="row justify-content-center align-items-center">
+
+                        <div class="col-10 text-center">
+                            <h1 class="title">VII - Retour sur l’expérience et analyse de l’expérience</h1>
+                        </div>
+
+                        <div class="col-10 justify-content-center align-items-center">
+
+                            <p class="text-justify readable-line-height my-3">
+                                En conclusion, cette période de stage a été pour moi l’occasion de me confronter directement à une situation concrète avant de pouvoir me projeter en entreprise durant mon alternance. Les différentes missions qui m’ont été confié ont pour la plupart été rempli, sauf dans le cas où certaines idées étaient bridées par l’outil utilisé ou aussi par manque de temps.
+                                Rétrospectivement, je pense être globalement satisfait de mon travail et ne pas avoir laisser de non-fait dans ce qui m’avait été donné de faire. De même, grâce à la démarche libre et empirique que j’ai pu emprunter tout au long du stage, j’ai pu constater que l’erreur est essentielle et que la réussite doit toujours être remise en cause, car ce qui semble être fini peut être amener à être modifié dans un futur plus ou moins proche. D’ailleurs, si j’avais l’opportunité de recommencer, je ne changerais pas ma manière d’aborder les choses car je n’ai pas l’impression d’avoir connu d’échec majeur ni de remise en cause totale. <br> <br>
+                                Cette expérience m’a permis d’accéder à une représentation d’un monde professionnel ouverte au partage et la créativité, qui donne sa chance à ceux qui ont soif de connaissances et l’envie de bien faire, même si je suis conscient d’avoir eu de la chance de faire mon stage chez Atlantic Soft, qui m’a accueilli chaleureusement durant ce mois. Je mesure donc cette chance et tenterais dans le futur de retranscrire les valeurs ainsi que la vision de monde de l’entreprise et du développement qui m’ont été transmis pendant cette expérience professionnelle. <br> <br>
+                                Ce stage a été une véritable source d’inspiration et m’a extrêmement motivé pour la suite. C’est notamment durant cette période de stage que j’ai vivement repris les cours en ligne après la période de creux du confinement. Ainsi, durant la prochaine année (et celles qui suivent), j’ai pour objectifs d’élargir mes connaissances en développement mais aussi de mener à bien des projets personnels, car les idées ne manquent pas. J’aimerais véritablement devenir un expert dans mon domaine, pouvoir être celui en qui on fait confiance et pouvoir à mon tour transmettre mes connaissances, tout en les remettant en cause pour ne pas m’enfermer dans un schéma de pensée. <br> <br>
+                                Enfin, je n’aurais pas la prétention de parler au nom de mon tuteur de stage Daniel ni au nom de Julien, mais de leurs mots, ces derniers m’ont fait comprendre qu’ils étaient satisfaits de mon travail. Ce stage a été plus qu’une expérience, car une opportunité s’est ouverte ; ainsi je pense personnellement qu’ils pourraient me recommander, puisque Julien et Daniel m’ont invité à rejoindre leurs rangs pour le mois de septembre afin de poursuivre mon travail sur le même projet. La fin d’une expérience devient le début d’une autre. <br> <br>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

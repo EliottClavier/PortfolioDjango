@@ -5,6 +5,7 @@
 
     /* On cache la scrollbar de base, qu'on fait apparaitre de nouveau pendant le temps de chargement */
     overflow-y: hidden;
+
 }
 
 /* Enlève le glitch qui ajoute un padding au body à la fermeture des modal*/
@@ -42,6 +43,11 @@ li {
 textarea {
     resize: none;
     text-decoration: none;
+}
+
+/* Met un interligne facilitant la lecture */
+.readable-line-height {
+    line-height: 1.75em;
 }
 
 /* Écran qui grise la page lorsque la sidebar de contact est déroulé (changement du z-index et de l'opacité) */
@@ -178,7 +184,6 @@ textarea {
 .icon-text {
     vertical-align: center;
 }
-
 
 /* Onglet compétences, expériences, formation */
 

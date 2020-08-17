@@ -5,6 +5,8 @@
 <!-- Même sidebar que dans la home page mais avec des liens différents (pour rediriger vers la homepage) -->
 {% block sidebar-menu %}
 
+    <button id="trigger-sidebar-menu" class="btn-modern-reverse"><i class="fas fa-bars fa-2x"></i></button>
+
     <nav id="sidebar" class="container-fluid">
 
         <div class="row">
@@ -57,19 +59,22 @@
 
     <section class="container-fluid d-flex py-5">
 
-            <div class="row justify-content-center align-items-center ">
+            <div class="row justify-content-center align-items-center">
 
-            <div class="col-12 text-center">
-                <h1 class="title">Découvrez mes différents projets !</h1>
-                <!-- <a href="{% url 'home' %}" class="btn-modern">Retour à l'accueil</a> -->
-            </div>
+                <div class="col-12 text-center">
+                    <h1 class="title">Découvrez mes différents projets !</h1>
+                    <!-- <a href="{% url 'home' %}" class="btn-modern">Retour à l'accueil</a> -->
+                </div>
 
                 <div class="col-11 justify-content-center align-items-center">
 
                     {% for project in projects reversed %}
 
-                        <!-- On rend la carte cliquable (redirige vers le lien du projet)-->
-                        <a href="{{ project.url }}" target="_blank">
+                        {% if project.url %}
+                            <!-- On rend la carte cliquable (redirige vers le lien du projet)-->
+                            <a href="{{ project.url }}" target="_blank">
+                        {% endif %}
+
 
                             <!-- Carte Projet avec Image, Description et compétences clés -->
                             <div class="card-project my-5">
@@ -140,14 +145,14 @@
                                     </div>
                                 </div>
 
-                                <div class="row justify-content-center align-items-center">
-
-                                    <h3 class="text-hidden">Accéder au projet</h3>
-
+                                {% if project.url %}
+                                    <div class="row justify-content-center align-items-center mt-3">
+                                        <h3 class="text-hidden">Accéder au projet</h3>
+                                    </div>
+                                {% endif %}
                                 </div>
-                            </div>
+                            </a>
 
-                        </a>
                     {% endfor %}
 
                 </div>
