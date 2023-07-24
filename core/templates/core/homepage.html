@@ -69,10 +69,12 @@
 
         <div class="container-global-tabs">
 
+            {% comment %}
             <div class="container-tabs">
                 <div id="tab-contact" class="tabs active" data-displayed="1">Me contacter</div>
                 <div id="tab-reco" class="tabs" data-displayed="2">Me recommander</div>
             </div>
+            {% endcomment %}
 
             <!-- Onglet Me contacter -->
             <div id="tab-content-contact" class="content activeContent" data-displayed="1">
@@ -110,6 +112,7 @@
             </div>
 
             <!-- Onglet Me recommander -->
+            {% comment %}
             <div id="tab-content-reco" class="content" data-displayed="2">
 
                 <form id="recommendationForm" action="{% url 'ajax_recommendation' %}" method="POST">
@@ -144,15 +147,18 @@
                 </form>
 
             </div>
+            {% endcomment %}
         </div>
     </nav>
 
     <!-- Toasts recommandation / contact -->
+    {% comment %}
     <div id="toast-recommend" class="toast">
         <h6 class="m-0">
             <i style="color: rgba(0,0,0,0.85);" class="mr-3 fas fa-check-circle"></i>Recommandation enregistrée
         </h6>
     </div>
+    {% endcomment %}
 
     <div id="toast-contact" class="toast">
         <h6 class="m-0">
@@ -188,7 +194,7 @@
 
                         <h1 class="title mb-4">Eliott Clavier</h1>
                         <hr>
-                        <h2 class="mt-4">Alternant ingénieur informatique chez RTE et étudiant DEV chez Campus Academy Nantes.</h2>
+                        <h2 class="mt-4">Alternant architecte logiciel chez RTE et étudiant MSCPro à Epitech Nantes.</h2>
 
                     </div>
                 </div>
@@ -242,7 +248,7 @@
             <div class="col-xl-5 col-lg-5 col-md-10 col-sm-10">
 
                 <h1 class="title text-center mt-md-3 mt-sm-3 mb-4">Qui suis-je ?</h1>
-                <p class="text-justify">Récemment diplômé d’un Baccalauréat Scientifique, je suis, depuis septembre 2019, étudiant dans l’école Campus Academy Nantes. C’est dans le cadre d’un projet d’école visant à mettre en œuvre et améliorer mes compétences que ce portfolio professionnel a vu le jour. Ce site a donc pour principal but de me présenter mais aussi de pouvoir prouver ma compétence et ma motivation. Afin de découvrir mon profil, je vous invite donc à visiter mon site, mon profil Linkedin ou bien mon CV à votre disposition. </p>
+                <p class="text-justify">{{ presentation.text }}</p>
                 <h1 class="title text-center mt-4">Bonne visite !</h1>
 
             </div>
@@ -290,7 +296,7 @@
     <section id="experiencesandskills" class="container-fluid justify-content-center align-items-center d-flex py-5">
         <div class="row justify-content-center align-items-center">
 
-            <h1 class="title mt-5">Compétences et expériences !</h1>
+            <h1 class="title mt-5">Compétences et expériences</h1>
 
             <div class="col-10 justify-content-center text-center my-5">
 
@@ -313,9 +319,13 @@
              <!-- On affiche les compétences -->
             <div class="row justify-content-center align-items-center display-skills my-3" style="display: none">
 
-                {% for skill in skills %}
+                <div class="col-12 mt-5">
+                    <h3>Développement web</h3>
+                </div>
 
-                    <div class="col-xl-5 col-lg-5 col-md-7 col-sm-7">
+                {% for skill in skills.web %}
+
+                    <div class="col-xl-3 col-lg-3 col-md-7 col-sm-7 mx-3">
                         <div class="progress my-3" style="background-color: {{ skill.color }}CC">
                             <div class="progress-bar" style="background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
                                 <h3 style="font-size: 18px"> {{ skill.name }} </h3>
@@ -323,47 +333,117 @@
                         </div>
                     </div>
 
-                   <div class="col-xl-1 col-lg-1"></div>
+                {% endfor %}
+
+                <div class="col-12 mt-5">
+                    <h3>DevOPS</h3>
+                </div>
+
+                {% for skill in skills.devops %}
+
+                    <div class="col-xl-3 col-lg-3 col-md-7 col-sm-7 mx-3">
+                        <div class="progress my-3" style="background-color: {{ skill.color }}CC">
+                            <div class="progress-bar" style="background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
+                                <h3 style="font-size: 18px"> {{ skill.name }} </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                <div class="col-12 mt-5">
+                    <h3>Intelligence Artificielle</h3>
+                </div>
+
+                {% for skill in skills.ai %}
+
+                    <div class="col-xl-3 col-lg-3 col-md-7 col-sm-7 mx-3">
+                        <div class="progress my-3" style="background-color: {{ skill.color }}CC">
+                            <div class="progress-bar" style="background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
+                                <h3 style="font-size: 18px"> {{ skill.name }} </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                <div class="col-12 mt-5">
+                    <h3>Gestion de projet</h3>
+                </div>
+
+                {% for skill in skills.project %}
+
+                    <div class="col-xl-3 col-lg-3 col-md-7 col-sm-7 mx-3">
+                        <div class="progress my-3" style="background-color: {{ skill.color }}CC">
+                            <div class="progress-bar" style="background-color: {{ skill.color }};" data-width="{{ skill.advancement }}">
+                                <h3 style="font-size: 18px"> {{ skill.name }} </h3>
+                            </div>
+                        </div>
+                    </div>
 
                 {% endfor %}
 
             </div>
 
-            {% for experience in experiences reversed %}
-            <div class="row justify-content-center align-items-center display-experiences py-4 my-3" style="display: none;">
+            <div class="display-experiences py-4 my-3" style="display: none;">
 
-                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-center">
-                        <h5>{{ experience.duration }}</h5>
-                        <hr style="background-color: black">
-                        <h3>{{ experience.name }}</h3>
+                {% for experience in experiences reversed %}
+
+                    <div class="row justify-content-center align-items-center my-5">
+
+                        <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-center">
+                            <h5>{{ experience.duration }}</h5>
+                            <hr style="background-color: black">
+                            <h3>{{ experience.name }}</h3>
+                        </div>
+
+                        <div class="col-xl-1 col-lg-1"></div>
+
+                        <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-justify">
+                            <p class="m-0">{{ experience.description|linebreaks }}</p>
+                        </div>
+
                     </div>
 
-                    <div class="col-xl-1 col-lg-1"></div>
-
-                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-justify">
-                        {{ experience.description|linebreaks }}
-                    </div>
+                {% endfor %}
 
             </div>
-            {% endfor %}
 
-            {% for study in studies reversed %}
-            <div class="row justify-content-center align-items-center display-studies py-4 my-3" style="display: none;">
+            <div class="display-studies py-4 my-3" style="display: none;">
 
-                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-center">
-                        <h5>{{ study.duration }}</h5>
-                        <hr style="background-color: black">
-                        <h3>{{ study.name }}</h3>
+                {% for study in studies reversed %}
+
+                    <div class="row justify-content-center align-items-center my-5">
+
+                        {% if study.inline %}
+
+                            <div 
+                                class="col-xl-8 col-lg-8 col-md-8 col-sm-8 text-center px-3 py-2" 
+                                style="border: 1px solid black; border-radius: 1em;">
+                                <h5 class="m-0">{{ study.name }}</h5>
+                            </div>
+
+                        {% else %}
+
+                            <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-center">
+                                <h5>{{ study.duration }}</h5>
+                                <hr style="background-color: black">
+                                <h3>{{ study.name }}</h3>
+                            </div>
+
+                            <div class="col-xl-1 col-lg-1"></div>
+
+                            <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-justify">
+                                <p class="m-0">{{ study.description|linebreaks }}</p>
+                            </div>
+
+                        {% endif %}
+
                     </div>
 
-                    <div class="col-xl-1 col-lg-1"></div>
-
-                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 text-justify">
-                        {{ study.description|linebreaks }}
-                    </div>
+                {% endfor %}
 
             </div>
-            {% endfor %}
 
         </div>
 
@@ -393,7 +473,8 @@
                         <button type="button" class="btn-modern btn-open-sidebar-contact">Me contacter</button>
 
                     </div>
-
+                    
+                    {% comment %}
                     <div class="col-xl-1 col-lg-1"></div>
 
                     <div class="col-xl-4 col-lg-4 col-md-10 col-10-sm mt-xl-0 mt-lg-0 mt-md-5 mt-sm-5 text-center">
@@ -410,6 +491,7 @@
                         <button type="button" class="btn-modern btn-open-sidebar-reco">Me recommander</button>
 
                     </div>
+                    {% endcomment %}
 
                 </div>
 
@@ -418,6 +500,7 @@
     </section>
 
     <!-- Section vers mur des recommandations -->
+    {% comment %}
     <a class="link-bar" href="{% url 'recommendations' %}">
         <section class="redirect-bar container-fluid d-flex justify-content-center align-items-center py-3">
             <div class="row justify-content-center align-items-center">
@@ -431,6 +514,7 @@
             </div>
         </section>
     </a>
+    {% endcomment %}
 
     <!-- Footer -->
     <section id="footer" class="container-fluid d-flex justify-content-center align-items-center py-3">

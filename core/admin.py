@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Project, Skill, Experience, Study, Recommendation
+from .models import Project, Skill, Experience, Study, Recommendation, Presentation
 
 
 @admin.register(Project)
@@ -20,7 +20,7 @@ class ExperienceAdmin(admin.ModelAdmin):
 
 @admin.register(Study)
 class StudyAdmin(admin.ModelAdmin):
-    list_display = ['name', 'duration', 'description']
+    list_display = ['name', 'duration', 'description', 'inline']
 
 
 @admin.register(Recommendation)
@@ -30,3 +30,7 @@ class RecommendationAdmin(admin.ModelAdmin):
     # Empêche d'ajouter manuellement des recommandations
     # def has_add_permission(self, request, obj=None):
     #     return False
+
+@admin.register(Presentation)
+class PresentationAdmin(admin.ModelAdmin):
+    list_display = ['text']

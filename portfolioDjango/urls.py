@@ -27,7 +27,7 @@ urlpatterns = [
     path('ajax/recommendation', core.views.ajax_recommendation, name='ajax_recommendation'),
     path('ajax/contact', core.views.ajax_contact, name='ajax_contact'),
     path('projets', core.views.projects, name="projects"),
-    path('recommandations', core.views.recommendations, name="recommendations"),
+    #path('recommandations', core.views.recommendations, name="recommendations"),
     path('rapport-stage', core.views.internship, name="internship")
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

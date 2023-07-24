@@ -16,8 +16,10 @@ class Project(models.Model):
 class Skill(models.Model):
 
     CATEGORIES = [
-        ('L', 'language'),
-        ('T', 'tool')
+        ('WEB', 'web'),
+        ('DEVOPS', 'devops'),
+        ('AI', 'ai'),
+        ('PROJECT', 'project'),
     ]
 
     name = models.CharField(max_length=50, help_text="Nom de la compétence")
@@ -38,8 +40,9 @@ class Experience(models.Model):
 
 class Study(models.Model):
     name = models.CharField(max_length=200, help_text="Nom de la formation")
-    description = models.TextField(help_text="Description de la formation")
-    duration = models.CharField(max_length=30, help_text="Durée de la formation")
+    description = models.TextField(help_text="Description de la formation", blank=True, null=True)
+    duration = models.CharField(max_length=30, help_text="Durée de la formation", blank=True, null=True)
+    inline = models.BooleanField(help_text="Afficher en ligne / Non affichée", default=False)
 
 
 class Recommendation(models.Model):
@@ -50,3 +53,6 @@ class Recommendation(models.Model):
     message = models.TextField(help_text="Message de recommandation")
     date = models.DateField(help_text="Date du message")
     verified = models.BooleanField(help_text="Non affichée / Affichée")
+
+class Presentation(models.Model):
+    text = models.TextField(help_text="Texte de présentation")

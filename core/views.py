@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Project, Skill, Experience, Study, Recommendation
+from .models import Project, Skill, Experience, Study, Recommendation, Presentation
 from .forms import RecommendationForm, ContactForm
 
 from django.core import mail
@@ -13,15 +13,22 @@ def homepage(request):
     skills = Skill.objects.all()
     experiences = Experience.objects.all()
     studies = Study.objects.all()
+    presentation = Presentation.objects.first()
 
     contact_form = ContactForm()
     recommendation_form = RecommendationForm()
 
     return render(request, 'core/homepage.html', {
         'projects': projects,
-        'skills': skills,
+        'skills': {
+            'web': skills.filter(category='WEB'),
+            'devops': skills.filter(category='DEVOPS'),
+            'ai': skills.filter(category='AI'),
+            'project': skills.filter(category='PROJECT')
+        },
         'experiences': experiences,
         'studies': studies,
+        'presentation': presentation,
         'recommendationForm': recommendation_form,
         'contactForm': contact_form
     })
@@ -72,11 +79,11 @@ def projects(request):
     })
 
 
-def recommendations(request):
-    recommendations = Recommendation.objects.all()
-    return render(request, 'core/recommend.html', {
-        'recommendations': recommendations
-    })
+# def recommendations(request):
+#     recommendations = Recommendation.objects.all()
+#     return render(request, 'core/recommend.html', {
+#         'recommendations': recommendations
+#     })
 
 
 def internship(request):
