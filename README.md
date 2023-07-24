@@ -1,8 +1,30 @@
-Portfolio V3 avec Django (Python)
+# Portfolio avec Django (Python)
 
-Ceci correspond à la troisième version du projet de mon portfolio.
+## Installation
+Dans le répertoire racine du projet, exécutez les commandes suivantes :
+```powershell
+python -m venv env
+```
 
-Ce repository contient :
+```powershell
+env\Scripts\activate
+```
 
-    - Le projet en Django avec d'autres plugins externes (notamment jQuery, Bootstrap)
-    - Le dump en plain text de ma base de données PostgreSQL (à adapter à une base de données MySQL) 
+```powershell
+pip install -r requirements.txt
+```
+
+## Configuration
+Une fois l'environnement virtuel configuré, effectuer les étapes suivantes à la racine du projet :
+- créer un fichier .env, et le remplir selon le fichier .env.example
+- créer un fichier db.sqlite3
+
+## Lancement
+Une fois le projet configuré, exécutez les commandes suivantes pour lancer l'application :
+```
+python manage.py migrate
+```
+
+```powershell
+python manage.py runserver
+```
