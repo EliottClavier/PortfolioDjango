@@ -190,6 +190,9 @@ $(document).ready(function () {
         });
     }, 3500);
 
+    // Simulate click on button.btn-skills
+    $('button.btn-skills').trigger('click'); 
+
 });
 
 /* Bouton suivant précèdent de la section projet */
